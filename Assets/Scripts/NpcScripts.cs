@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class NpcScripts : MonoBehaviour
 {
-    String name;
-    String questObject;
+    string name;
+    string questObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        name = "";
+        questObject = "";
         
+    }
+
+    // Sets the NPCs QuestObject name
+    void setQuestObject(string objectName)
+    {
+        questObject = objectName;
     }
 
     // Update is called once per frame
