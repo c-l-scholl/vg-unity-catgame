@@ -10,7 +10,15 @@ public class NpcScripts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        name = "";
+        questObject = "";
         
+    }
+
+    // Sets the NPCs QuestObject name
+    void setQuestObject(string objectName)
+    {
+        questObject = objectName;
     }
 
     // Update is called once per frame
