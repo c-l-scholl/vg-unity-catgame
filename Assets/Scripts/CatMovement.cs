@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-// Change thefile name to CatMovement.cs
 // Change the movement style to accept the most recent keypress
 
 public class NewBehaviourScript : MonoBehaviour
@@ -21,33 +22,40 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         animator.SetFloat("Speed", Mathf.Abs(speed));
 
         Vector2 movement;
         movement.y = 0;
         movement.x = 0;
-        if (Input.GetKey(KeyCode.RightArrow))
+        float horizMove = Input.GetAxisRaw("Horizontal") * speed;
+        
+        if (horizMove > 0)
         {
-            // animator.SetBool("Right", true);
             resetAnimateBool("Right");
-            movement.x = speed;
+            movement.x = horizMove;
+            if (Input.GetKey(KeyCode.UpArrow)) {
+                movement.y = speed;
+            } else if (Input.GetKey(KeyCode.DownArrow)) {
+                movement.y = -speed;
+            }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (horizMove < 0)
         {
-            // animator.SetBool("Left", true);
             resetAnimateBool("Left");
-            movement.x = -speed;
+            movement.x = horizMove;
+            if (Input.GetKey(KeyCode.UpArrow)) {
+                movement.y = speed;
+            } else if (Input.GetKey(KeyCode.DownArrow)) {
+                movement.y = -speed;
+            }
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            // animator.SetBool("Up", true);
             resetAnimateBool("Up");
             movement.y = speed;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            // animator.SetBool("Down", true);
             resetAnimateBool("Down");
             movement.y = -speed;
         }
