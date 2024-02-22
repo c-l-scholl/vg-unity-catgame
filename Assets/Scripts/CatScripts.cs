@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Change thefile name to CatMovement.cs
+// Change the movement style to accept the most recent keypress
+
 public class NewBehaviourScript : MonoBehaviour
 {
     public Animator animator;
