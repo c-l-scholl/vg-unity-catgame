@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Change thefile name to CatMovement.cs
+// Change the movement style to accept the most recent keypress
+
 public class NewBehaviourScript : MonoBehaviour
 {
     public Animator animator;
     public float speed = 1.5f;
     Rigidbody2D rigidbody;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,13 +44,13 @@ public class NewBehaviourScript : MonoBehaviour
             // animator.SetBool("Up", true);
             resetAnimateBool("Up");
             movement.y = speed;
-        }     
+        }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             // animator.SetBool("Down", true);
             resetAnimateBool("Down");
             movement.y = -speed;
-        }     
+        }
         else
         {
             resetAnimateBool(null);
@@ -60,13 +63,15 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Sets all animation booleans to false except for the exception
-    private void resetAnimateBool(string exception) {
+    private void resetAnimateBool(string exception)
+    {
         animator.SetBool("Right", false);
         animator.SetBool("Left", false);
         animator.SetBool("Up", false);
         animator.SetBool("Down", false);
-        
-        if (exception != null) {
+
+        if (exception != null)
+        {
             animator.SetBool(exception, true);
         }
     }
