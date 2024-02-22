@@ -9,6 +9,9 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public Animator animator;
     public float speed = 1.5f;
+
+    private float sprintSpeed = speed * 1.5f;
+    private float tiredSpeed = speed * 0.67f;
     Rigidbody2D rigidbody;
 
 
@@ -21,7 +24,6 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         animator.SetFloat("Speed", Mathf.Abs(speed));
 
         Vector2 movement;
@@ -60,6 +62,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
 
         rigidbody.velocity = movement;
+        
     }
 
     // Sets all animation booleans to false except for the exception
