@@ -8,6 +8,7 @@ public class NpcScripts : MonoBehaviour
     string questObject;
     bool hatesCat;
     int relationship;
+    string[] inventory = new string[1];
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,12 @@ public class NpcScripts : MonoBehaviour
         name = "";
         questObject = "";
         hatesCat = false;
+    }
+
+    // Add an item to NPC inventory
+    void takeObj(string obj)
+    {
+        inventory[0] = obj;
     }
 
     // Sets the NPCs QuestObject name
