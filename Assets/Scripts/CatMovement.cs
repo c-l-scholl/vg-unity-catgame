@@ -10,16 +10,19 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public Animator animator;
     public float speed = 1.5f;
+    private float sprintSpeed;
+    private float tiredSpeed;
 
-    private float sprintSpeed = speed * 1.5f;
-    private float tiredSpeed = speed * 0.67f;
-    Rigidbody2D rigidbody;
+    Rigidbody2D rigidBody;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        sprintSpeed = speed * 1.5f;
+        tiredSpeed = speed * 0.67f;
+
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -70,7 +73,7 @@ public class NewBehaviourScript : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
 
-        rigidbody.velocity = movement;
+        rigidBody.velocity = movement;
         
     }
 
