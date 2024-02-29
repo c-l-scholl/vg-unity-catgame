@@ -30,11 +30,6 @@ public class CameraBounds : MonoBehaviour
         if (playerWithin) {
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y, zPos);
         } else {
-            Debug.Log("player not within");
-            Debug.Log(withinMaxX + " withinmaxX");
-            Debug.Log(withinMaxY + " withinmaxY");
-            Debug.Log(withinMinX + " withinminX");
-            Debug.Log(withinMinY + " withinminY");
             if (!withinX && withinY) {
                 if (!withinMaxX) {
                     transform.position = new Vector3(maxPos.x, player.transform.position.y, zPos);
@@ -105,10 +100,8 @@ public class CameraBounds : MonoBehaviour
         if (player.transform.position.x < maxPos.x && player.transform.position.x > minPos.x && 
         player.transform.position.y < maxPos.y && player.transform.position.y > minPos.y) {
             playerWithin = true;
-            Debug.Log("Within");
         } else {
             playerWithin = false;
-            Debug.Log("Not within" + playerWithin);
         }
     }
 }
