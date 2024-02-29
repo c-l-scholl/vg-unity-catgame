@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CatUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    string[] inventory;
+    bool carrying;
+    bool food; //can differentiate items by food or not-food
     
     void Start()
     {
-        
+        inventory = new string[1];
+        carrying = false;
+        food = false;
     }
 
     // Update is called once per frame
@@ -16,4 +20,10 @@ public class CatUI : MonoBehaviour
     {
         
     }
+
+    void pickUp(string item) {
+        carrying = true;
+        // if (item)
+    }
+
 }
