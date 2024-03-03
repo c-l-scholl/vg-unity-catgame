@@ -9,6 +9,7 @@ TagManager:
   - SideBorder
   - VertBorder
   - RightBorder
+  - Box
   layers:
   - Default
   - TransparentFX

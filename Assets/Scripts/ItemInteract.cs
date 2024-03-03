@@ -5,16 +5,17 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public bool food = false;
-    public bool triggerActive = false;
+    bool triggerActive = false;
+    public GameObject popUpUI;
 
-    public void OnTriggerEnter(Collider other) {
+    public void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player"))
         {
             triggerActive = true;
         }
     }
  
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -32,7 +33,15 @@ public class ItemScript : MonoBehaviour
  
     public void CatInventoryStuff()
     {
+        PromptPlayer();
+    }
 
+    public void PromptPlayer() {
+        popUpUI.SetActive(true);
+
+        if (!triggerActive) {
+            popUpUI.SetActive(false);
+        }
     }
 
 }
