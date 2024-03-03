@@ -8,8 +8,11 @@ public class CameraBounds : MonoBehaviour
 {
     public GameObject player;
 
-    public Vector2 maxPos;
-    public Vector2 minPos;
+    public GameObject rightBorder, leftBorder, topBorder, bottomBorder;
+    float distanceToBorder = 6.4f;
+    float vertBuffer = 3.6f;
+    Vector2 maxPos; 
+    Vector2 minPos;
     int zPos = -10;
 
     bool withinMaxX;
@@ -22,6 +25,8 @@ public class CameraBounds : MonoBehaviour
 
     void Start()
     {
+        maxPos = new Vector2(rightBorder.transform.position.x - distanceToBorder, topBorder.transform.position.y - distanceToBorder + vertBuffer);
+        minPos = new Vector2(leftBorder.transform.position.x + distanceToBorder, bottomBorder.transform.position.y + distanceToBorder - vertBuffer);
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, zPos);
     }
 
