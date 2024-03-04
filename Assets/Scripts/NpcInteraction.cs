@@ -23,7 +23,7 @@ public class NpcInteraction : MonoBehaviour
             if (!activatedQuest && Input.GetKey(KeyCode.Space) ) // change to have boolean to prevent multiple detection frames
             {
                 Debug.Log("Interacted with girl");
-                CatSingleton.m_singleton.GetQuestManager().AdvanceQuest(this.gameObject);
+                CatSingleton.GetCatSingleton().GetQuestManager().AdvanceQuest(this.gameObject);
                 activatedQuest = true;
             }
         }
