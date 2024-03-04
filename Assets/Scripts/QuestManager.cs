@@ -13,11 +13,39 @@ public struct QuestPlusNPC
 {
     public GameObject Quest;
     public GameObject NPC;
+
+    public QuestPlusNPC(GameObject quest, GameObject npc)
+    {
+        Quest = quest;
+        NPC = npc;
+    }
+
+    public GameObject GetQuest() 
+    {
+        return Quest;
+    }
+
+    public GameObject GetNPC() 
+    {
+        return NPC;
+    }
 }
 
 public class QuestManager : MonoBehaviour
 {
     public QuestPlusNPC[] quests; // list of structs better than dictionary
+
+    void Start()
+    {
+        quests = new QuestPlusNPC[1];
+        InitializeQuests();
+    }
+
+    private void InitializeQuests()
+    {
+        QuestPlusNPC littleGirlQN = new QuestPlusNPC(GameObject.Find("LittleGirlQuest"), GameObject.Find("LittleGirlNPC"));
+        quests[0] = littleGirlQN;
+    }
 
     public void AdvanceQuest(GameObject npc)
     {
@@ -26,4 +54,4 @@ public class QuestManager : MonoBehaviour
     }
 }
 
-// e
+// 

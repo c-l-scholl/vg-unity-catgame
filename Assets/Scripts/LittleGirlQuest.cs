@@ -7,7 +7,7 @@ public class LittleGirlQuest : MonoBehaviour
     public GameObject playerCat; // could use singleton instead
     public GameObject littleGirl;
 
-    public GameObject teddyBear;
+    public GameObject questItem;
     // Start is called before the first frame update
     public GameObject L2; // or the rest of the map or something
 
