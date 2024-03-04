@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ItemScript : MonoBehaviour
 {
     public bool food = false;
+    public bool box = false;
     bool triggerActive = false;
     public GameObject popUpUI;
 
@@ -25,18 +27,31 @@ public class ItemScript : MonoBehaviour
  
     private void Update()
     {
-        if (triggerActive && Input.GetKeyDown(KeyCode.X))
+        if (triggerActive && Input.GetKeyDown(KeyCode.Space))
         {
-            CatInventoryStuff();
+            if (!box) {
+                CatInventoryStuff();
+            } else {
+                BoxInteractionStuff();
+            }
         }
     }
  
-    public void CatInventoryStuff()
+    void CatInventoryStuff()
     {
         PromptPlayer();
     }
 
+    void BoxInteractionStuff() {
+
+    }
+
     public void PromptPlayer() {
+
+        if (food) {
+            popUpUI.transform.Find("EatFood").gameObject.SetActive(true);
+        }
+
         popUpUI.SetActive(true);
 
         if (!triggerActive) {
