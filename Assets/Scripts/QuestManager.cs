@@ -13,22 +13,6 @@ public struct QuestPlusNPC
 {
     public GameObject Quest;
     public GameObject NPC;
-
-    public QuestPlusNPC(GameObject quest, GameObject npc)
-    {
-        Quest = quest;
-        NPC = npc;
-    }
-
-    public GameObject GetQuest() 
-    {
-        return Quest;
-    }
-
-    public GameObject GetNPC() 
-    {
-        return NPC;
-    }
 }
 
 public class QuestManager : MonoBehaviour
@@ -37,20 +21,20 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        quests = new QuestPlusNPC[1];
-        InitializeQuests();
-    }
 
-    private void InitializeQuests()
-    {
-        QuestPlusNPC littleGirlQN = new QuestPlusNPC(GameObject.Find("LittleGirlQuest"), GameObject.Find("LittleGirlNPC"));
-        quests[0] = littleGirlQN;
     }
 
     public void AdvanceQuest(GameObject npc)
     {
         // search map for matching npc
         // call method on paired quest
+        foreach (QuestPlusNPC qn in quests) 
+        {
+            if (qn.NPC == npc)
+            {
+                qn.Quest.SendMessage("AdvanceQuest"); // need to fix so the call is generic
+            }
+        }
     }
 }
 

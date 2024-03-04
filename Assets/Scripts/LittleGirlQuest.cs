@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LittleGirlQuest : MonoBehaviour
 {
-    public GameObject playerCat; // could use singleton instead
     public GameObject littleGirl;
 
     public GameObject questItem;
@@ -33,6 +32,7 @@ public class LittleGirlQuest : MonoBehaviour
     public void AdvanceQuest() // needs access to Player's inventory
     {
         // state machine based on quest
+        Debug.Log("Received Quest Advance Call");
         switch ( currentQuestProg )
         {
             case QuestProgress.HAVENT_MET:

@@ -7,8 +7,8 @@ public class NpcInteraction : MonoBehaviour
     // Start is called before the first frame update
     private BoxCollider2D interactionBox;
     private BoxCollider2D catCollider;
-    
-    bool isTouching = false;
+
+    bool activatedQuest = false;
     void Start()
     {
         interactionBox = GetComponent<BoxCollider2D>();
@@ -20,10 +20,18 @@ public class NpcInteraction : MonoBehaviour
     {
         if (interactionBox.IsTouching(catCollider))
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (!activatedQuest && Input.GetKey(KeyCode.Space) ) // change to have boolean to prevent multiple detection frames
             {
                 Debug.Log("Interacted with girl");
+                CatSingleton.m_singleton.GetQuestManager().AdvanceQuest(this.gameObject);
+                activatedQuest = true;
             }
         }
+        else 
+        {
+            activatedQuest = false;
+        }
+        
     }
+    
 }

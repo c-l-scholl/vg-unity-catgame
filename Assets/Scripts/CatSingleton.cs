@@ -16,6 +16,11 @@ public class CatSingleton : MonoBehaviour
         return m_singleton.GetComponent<BoxCollider2D>();
     }
 
+    public QuestManager GetQuestManager()
+    {
+        return m_singleton.GetComponent<QuestManager>();
+    }
+
     public static CatSingleton GetCatSingleton()
     {
         return m_singleton;
