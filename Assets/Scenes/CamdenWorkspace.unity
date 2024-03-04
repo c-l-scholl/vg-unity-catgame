@@ -13628,7 +13628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65f670c1846d694b9e2c503def7a964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCat: {fileID: 674946234}
   littleGirl: {fileID: 835326291}
   questItem: {fileID: 1928400790}
   L2: {fileID: 0}
@@ -28299,6 +28298,8 @@ SceneRoots:
   - {fileID: 881778145}
   - {fileID: 546089008}
   - {fileID: 835326294}
+  - {fileID: 624547523}
+  - {fileID: 1928400792}
   - {fileID: 958074265}
   - {fileID: 1936691924}
   - {fileID: 1935968234}
@@ -28314,6 +28315,4 @@ SceneRoots:
   - {fileID: 1191892814}
   - {fileID: 999256408}
   - {fileID: 1213390030}
-  - {fileID: 624547523}
-  - {fileID: 1928400792}
   - {fileID: 519973055}
