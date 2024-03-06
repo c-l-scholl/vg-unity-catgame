@@ -5,13 +5,12 @@ using UnityEngine;
 public class LittleGirlQuest : MonoBehaviour
 {
     public GameObject littleGirl;
-
     public GameObject questItem;
     // Start is called before the first frame update
     public GameObject L2; // or the rest of the map or something
 
 
-    enum QuestProgress 
+    private enum QuestProgress 
     {
         HAVENT_MET,
         ITEM_REQUESTED,
@@ -24,12 +23,6 @@ public class LittleGirlQuest : MonoBehaviour
         currentQuestProg = QuestProgress.HAVENT_MET;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AdvanceQuest() // needs access to Player's inventory
     {
         // state machine based on quest
@@ -37,23 +30,31 @@ public class LittleGirlQuest : MonoBehaviour
         switch ( currentQuestProg )
         {
             case QuestProgress.HAVENT_MET:
-                // if player has item
+                // initial dialogue
                 Debug.Log("Hey there kitty");
                 if (CatSingleton.GetCatSingleton().GetInventory().RemoveItemFromInventory(questItem) != null)
                 {
                     currentQuestProg = QuestProgress.QUEST_COMPLETE;
-                    this.AdvanceQuest();
+                    // dialogue
                 }
-                // set new CurrentQuestProg
-                // else
+                else
+                {
+                    currentQuestProg = QuestProgress.ITEM_REQUESTED;
+                    // dialogue
+                }
+                this.AdvanceQuest();
                 break;
             case QuestProgress.ITEM_REQUESTED:
-                // if player has item
-                //  remove from player inventory, put in girl inventory
-                //  set new CurrentQuestProg
-                //  dialogue
-                // else
-                //  dialogue
+                if (CatSingleton.GetCatSingleton().GetInventory().RemoveItemFromInventory(questItem) != null)
+                {
+                    currentQuestProg = QuestProgress.QUEST_COMPLETE;
+                    // dialogue
+                    this.AdvanceQuest();
+                }
+                else
+                {
+                    // reminder dialogue
+                }
                 break;
             case QuestProgress.QUEST_COMPLETE:
                 // basic dialogue
