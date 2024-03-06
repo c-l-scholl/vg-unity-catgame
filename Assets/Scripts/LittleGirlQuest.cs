@@ -10,6 +10,7 @@ public class LittleGirlQuest : MonoBehaviour
     // Start is called before the first frame update
     public GameObject L2; // or the rest of the map or something
 
+
     enum QuestProgress 
     {
         HAVENT_MET,
@@ -37,6 +38,12 @@ public class LittleGirlQuest : MonoBehaviour
         {
             case QuestProgress.HAVENT_MET:
                 // if player has item
+                Debug.Log("Hey there kitty");
+                if (CatSingleton.GetCatSingleton().GetInventory().RemoveItemFromInventory(questItem) != null)
+                {
+                    currentQuestProg = QuestProgress.QUEST_COMPLETE;
+                    this.AdvanceQuest();
+                }
                 // set new CurrentQuestProg
                 // else
                 break;
@@ -50,6 +57,7 @@ public class LittleGirlQuest : MonoBehaviour
                 break;
             case QuestProgress.QUEST_COMPLETE:
                 // basic dialogue
+                Debug.Log("Wow thank you so much for my letter (i guess)");
                 break;
         }
     }

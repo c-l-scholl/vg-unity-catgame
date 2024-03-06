@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 public class Inventory : MonoBehaviour
 {
-    private List<GameObject> items;
+    // set items to private later, only keeping it here for debugging
+    public List<GameObject> items;
 
     public int maxItems;
 
@@ -13,17 +14,20 @@ public class Inventory : MonoBehaviour
         items = new List<GameObject>();
     }
 
-    public bool HasItemsInInventory()
+    public bool IsInventoryEmpty()
     {
-        return items.Count > 0;
+        return items.Count == 0;
     }
 
-    public void AddItemToInventory(GameObject item)
+    // could change this to boolean to help with GUI decision making
+    public bool AddItemToInventory(GameObject item)
     {
         if (items.Count < maxItems)
         {
-            items.Add(item);;
+            items.Add(item);
+            return true;
         }
+        return false;
         
     }
 

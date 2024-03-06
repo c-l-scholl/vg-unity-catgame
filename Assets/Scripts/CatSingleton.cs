@@ -21,6 +21,11 @@ public class CatSingleton : MonoBehaviour
         return m_singleton.GetComponent<QuestManager>();
     }
 
+    public Inventory GetInventory()
+    {
+        return m_singleton.GetComponent<Inventory>();
+    }
+
     public static CatSingleton GetCatSingleton()
     {
         return m_singleton;
