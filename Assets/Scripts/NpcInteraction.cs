@@ -15,7 +15,7 @@ public class NpcInteraction : MonoBehaviour
     void Start()
     {
         interactionBox = GetComponent<BoxCollider2D>();
-        catCollider = CatSingleton.m_singleton.GetCatCollider();
+        catCollider = CatSingleton.GetCatSingleton().GetCatCollider();
     }
 
     // Update is called once per frame
@@ -25,7 +25,6 @@ public class NpcInteraction : MonoBehaviour
         {
             if (!activatedQuest && Input.GetKey(KeyCode.Space) ) 
             {
-                Debug.Log("Interacted with girl");
                 interactWithNPC.Invoke();
                 activatedQuest = true;
             }
