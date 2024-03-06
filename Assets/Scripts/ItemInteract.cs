@@ -25,9 +25,12 @@ public class ItemScript : MonoBehaviour
         }
     }
  
-    private void Update()
+    private void Update() // we can get rid of the other functions
     {
-        if (triggerActive && Input.GetKeyDown(KeyCode.Space))
+        if (triggerActive && Input.GetKeyDown(KeyCode.Space)) // and use the IsTouching() method instead of triggerActive
+                                                            // unless you followed some tutorial and this is better practice idrk :)
+                                                            // you can look NpcInteraction for reference
+                                                            // - Camden
         {
             if (!box) {
                 CatInventoryStuff();

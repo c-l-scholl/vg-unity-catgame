@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NpcInteraction : MonoBehaviour
 {
     // Start is called before the first frame update
     private BoxCollider2D interactionBox;
     private BoxCollider2D catCollider;
+
+    public UnityEvent interactWithNPC;
 
     bool activatedQuest = false;
     void Start()
@@ -20,10 +23,10 @@ public class NpcInteraction : MonoBehaviour
     {
         if (interactionBox.IsTouching(catCollider))
         {
-            if (!activatedQuest && Input.GetKey(KeyCode.Space) ) // change to have boolean to prevent multiple detection frames
+            if (!activatedQuest && Input.GetKey(KeyCode.Space) ) 
             {
                 Debug.Log("Interacted with girl");
-                CatSingleton.GetCatSingleton().GetQuestManager().AdvanceQuest(this.gameObject);
+                interactWithNPC.Invoke();
                 activatedQuest = true;
             }
         }
