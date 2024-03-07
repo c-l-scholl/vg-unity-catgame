@@ -20,7 +20,7 @@ public class ItemInteract : MonoBehaviour
 
     void Update()
     {
-        if (interactionBox.IsTouching(catCollider))
+        if (interactionBox.IsTouching(catCollider)) // change to onTriggerStay for better efficiency
         {
             if (!pickedUpItem && Input.GetKey(KeyCode.Space))
             {
@@ -29,14 +29,12 @@ public class ItemInteract : MonoBehaviour
                 // Display Options
                 // will fix this later
 
-                pickedUpItem = CatSingleton.GetCatSingleton().GetInventory().AddItemToInventory(this.gameObject);
+                //pickedUpItem = CatSingleton.GetCatSingleton().GetInventory().AddItemToInventory(this.gameObject);
                 if (pickedUpItem)
                 {
                     this.gameObject.SetActive(false);
                     Debug.Log("Picked up item");
                 }
-                
-
                 pickedUpItem = true;
             }
         }

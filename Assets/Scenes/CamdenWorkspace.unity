@@ -9355,6 +9355,7 @@ MonoBehaviour:
   littleGirl: {fileID: 835326291}
   questItem: {fileID: 1928400790}
   L2: {fileID: 0}
+  currentQuestProg: 0
 --- !u!4 &624547523
 Transform:
   m_ObjectHideFlags: 0
@@ -12607,6 +12608,7 @@ GameObject:
   - component: {fileID: 1143989563}
   - component: {fileID: 1143989562}
   - component: {fileID: 1143989570}
+  - component: {fileID: 1143989571}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -12824,11 +12826,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1143989561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8ae0a67b44e264a8946bc915ae5133, type: 3}
+  m_Script: {fileID: 11500000, guid: 70a35f99eafaf624f8b1b592b83dd283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
-  maxItems: 1
+  inventory: {fileID: 11400000, guid: 8f448ba494a50d544ba69936fdc86876, type: 2}
+--- !u!58 &1143989571
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143989561}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.55
 --- !u!1 &1165922636
 GameObject:
   m_ObjectHideFlags: 0
@@ -27881,7 +27917,7 @@ GameObject:
   - component: {fileID: 1928400792}
   - component: {fileID: 1928400791}
   - component: {fileID: 1928400793}
-  - component: {fileID: 1928400794}
+  - component: {fileID: 1928400795}
   m_Layer: 0
   m_Name: Letter
   m_TagString: Untagged
@@ -28001,7 +28037,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.24, y: 1.68}
   m_EdgeRadius: 0
---- !u!114 &1928400794
+--- !u!114 &1928400795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28010,12 +28046,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1928400790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65638a026836540c49c0e6c60b5003c5, type: 3}
+  m_Script: {fileID: 11500000, guid: ef403ea13963a22418f4ffedcd5628cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
-  box: 0
-  popUpUI: {fileID: 0}
+  item: {fileID: 11400000, guid: 8211b6d6e4eb3c34981420353cf10e95, type: 2}
 --- !u!1 &1937704524
 GameObject:
   m_ObjectHideFlags: 0

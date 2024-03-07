@@ -1,46 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-public class Inventory : MonoBehaviour
-{
-    // set items to private later, only keeping it here for debugging
-    public List<GameObject> items;
 
+[CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory")]
+public class Inventory : ScriptableObject
+{
+    public List<InventoryItemData> items = new();
     public int maxItems;
 
-    void Start()
+    public bool AddItemToInventory(InventoryItemData itemToAdd)
     {
-        items = new List<GameObject>();
-    }
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i] == null)
+            {
+                items[i] = itemToAdd;
+                return true;
+            }
+        }
 
-    public bool IsInventoryEmpty()
-    {
-        return items.Count == 0;
-    }
-
-    // could change this to boolean to help with GUI decision making
-    public bool AddItemToInventory(GameObject item)
-    {
         if (items.Count < maxItems)
         {
-            items.Add(item);
+            items.Add(itemToAdd);
             return true;
         }
+        Debug.Log("No inventory slots open");
         return false;
         
     }
 
-    public GameObject RemoveItemFromInventory(GameObject item) 
+    public bool RemoveItemFromInventory(InventoryItemData itemToRemove)
     {
-        if (items.Remove(item))
-        {
-            return item;
-        }
-        else
-        {
-            return null;
-        }
+        return items.Remove(itemToRemove);
     }
 }
+
+
+
+// public class Inventory : MonoBehaviour
+// {
+//     // set items to private later, only keeping it here for debugging
+//     public List<GameObject> items;
+
+//     public int maxItems;
+
+//     void Start()
+//     {
+//         items = new List<GameObject>();
+//     }
+
+//     public bool IsInventoryEmpty()
+//     {
+//         return items.Count == 0;
+//     }
+
+//     // could change this to boolean to help with GUI decision making
+//     public bool AddItemToInventory(GameObject item)
+//     {
+//         if (items.Count < maxItems)
+//         {
+//             items.Add(item);
+//             return true;
+//         }
+//         return false;
+        
+//     }
+
+//     public GameObject RemoveItemFromInventory(GameObject item) 
+//     {
+//         if (items.Remove(item))
+//         {
+//             return item;
+//         }
+//         else
+//         {
+//             return null;
+//         }
+//     }
+// }
 
