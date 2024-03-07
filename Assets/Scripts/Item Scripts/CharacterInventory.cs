@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterInventory : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Inventory inventory;
+    public Inventory inventory { get; private set; }
 
     private void OnTriggerStay2D(Collider2D other)
     {

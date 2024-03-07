@@ -9353,9 +9353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   littleGirl: {fileID: 835326291}
-  questItem: {fileID: 1928400790}
+  questItem: {fileID: 11400000, guid: 8211b6d6e4eb3c34981420353cf10e95, type: 2}
   L2: {fileID: 0}
-  currentQuestProg: 0
 --- !u!4 &624547523
 Transform:
   m_ObjectHideFlags: 0
@@ -10899,7 +10898,7 @@ Transform:
   m_GameObject: {fileID: 835326291}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.56, y: -4.17, z: 0}
+  m_LocalPosition: {x: -10.5, y: -4.25, z: 0}
   m_LocalScale: {x: 3.75, y: 3.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10934,7 +10933,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.06}
@@ -10948,7 +10947,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49, y: 0.47}
+  m_Size: {x: 0.15, y: 0.09}
   m_EdgeRadius: 0
 --- !u!114 &835326296
 MonoBehaviour:
@@ -12609,6 +12608,7 @@ GameObject:
   - component: {fileID: 1143989563}
   - component: {fileID: 1143989562}
   - component: {fileID: 1143989570}
+  - component: {fileID: 1143989572}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -12865,6 +12865,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.55
+--- !u!114 &1143989572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143989561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c29a8e9f97fa645a34e1baa7c03cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165922636
 GameObject:
   m_ObjectHideFlags: 0
@@ -29253,6 +29265,7 @@ GameObject:
   - component: {fileID: 2105236446}
   - component: {fileID: 2105236448}
   - component: {fileID: 2105236449}
+  - component: {fileID: 2105236450}
   m_Layer: 0
   m_Name: Bacon
   m_TagString: Untagged
@@ -29390,6 +29403,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.07, y: 2.26}
   m_EdgeRadius: 0
+--- !u!114 &2105236450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105236445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef403ea13963a22418f4ffedcd5628cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 570f6f4da0912a246b500c91ea1f2fe7, type: 2}
 --- !u!1 &2108484010
 GameObject:
   m_ObjectHideFlags: 0

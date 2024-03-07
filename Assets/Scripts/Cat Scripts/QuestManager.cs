@@ -32,7 +32,7 @@ public class QuestManager : MonoBehaviour
         {
             if (qn.NPC == npc)
             {
-                qn.Quest.SendMessage("AdvanceQuest"); // need to fix so the call is generic
+                qn.Quest.SendMessage("AdvanceQuest"); 
             }
         }
     }
