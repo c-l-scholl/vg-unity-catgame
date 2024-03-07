@@ -9355,6 +9355,7 @@ MonoBehaviour:
   littleGirl: {fileID: 835326291}
   questItem: {fileID: 11400000, guid: 8211b6d6e4eb3c34981420353cf10e95, type: 2}
   L2: {fileID: 0}
+  catInventory: {fileID: 11400000, guid: 8f448ba494a50d544ba69936fdc86876, type: 2}
 --- !u!4 &624547523
 Transform:
   m_ObjectHideFlags: 0

@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Inventory inventory { get; private set; }
+    public Inventory inventory;
+    private bool pickedUpItem = false;
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !pickedUpItem)
         {
             if (other.TryGetComponent(out CollectableItem itemToPickUp))
             {
                 inventory.AddItemToInventory(itemToPickUp.CollectItem());
+                pickedUpItem = true;
             }
             
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out CollectableItem itemToPickUp))
+            {
+                pickedUpItem = false;
+            }
     }
 }

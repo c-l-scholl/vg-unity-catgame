@@ -6,7 +6,6 @@ public class LittleGirlQuest : MonoBehaviour
 {
 	public GameObject littleGirl;
 	public InventoryItemData questItem;
-	// Start is called before the first frame update
 	public GameObject L2; // or the rest of the map or something
 
 	public Inventory catInventory;
@@ -23,7 +22,6 @@ public class LittleGirlQuest : MonoBehaviour
 	void Start()
 	{
 		currentQuestProg = QuestProgress.HAVENT_MET;
-		catInventory = CatSingleton.GetCatSingleton().GetComponent<CharacterInventory>().inventory;
 	}
 
 	public void AdvanceQuest() // needs access to Player's inventory
