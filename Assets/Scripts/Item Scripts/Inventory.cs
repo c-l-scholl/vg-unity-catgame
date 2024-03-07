@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory")]
 public class Inventory : ScriptableObject
 {
-    public List<InventoryItemData> items = new();
+    public List<InventoryItemData> items = new List<InventoryItemData>();
     public int maxItems;
 
     public bool AddItemToInventory(InventoryItemData itemToAdd)

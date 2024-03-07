@@ -15,25 +15,25 @@ public class NpcInteraction : MonoBehaviour
     void Start()
     {
         interactionBox = GetComponent<BoxCollider2D>();
-        catCollider = CatSingleton.GetCatSingleton().GetCatCollider();
+        //catCollider = CatSingleton.GetCatSingleton().GetCatCollider();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (interactionBox.IsTouching(catCollider))
-        {
-            if (!activatedQuest && Input.GetKey(KeyCode.Space) ) 
-            {
-                interactWithNPC.Invoke();
-                activatedQuest = true;
-            }
-        }
-        else 
-        {
-            activatedQuest = false;
-        }
+    // void Update()
+    // {
+    //     if (interactionBox.IsTouching(catCollider))
+    //     {
+    //         if (!activatedQuest && Input.GetKey(KeyCode.Space) ) 
+    //         {
+    //             interactWithNPC.Invoke();
+    //             activatedQuest = true;
+    //         }
+    //     }
+    //     else 
+    //     {
+    //         activatedQuest = false;
+    //     }
         
-    }
+    // }
     
 }

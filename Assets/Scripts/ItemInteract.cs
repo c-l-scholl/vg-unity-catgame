@@ -1,49 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+// using UnityEngine.UIElements;
 
-public class ItemInteract : MonoBehaviour
-{
-    public bool food = false;
-    public bool box = false;
-    public GameObject popUpUI;
-    private BoxCollider2D interactionBox;
-    private BoxCollider2D catCollider;
-    private bool pickedUpItem;
+// public class ItemInteract : MonoBehaviour
+// {
+//     public bool food = false;
+//     public bool box = false;
+//     public GameObject popUpUI;
+//     private BoxCollider2D interactionBox;
+//     private BoxCollider2D catCollider;
+//     private bool pickedUpItem;
 
-    void Start()
-    {
-        interactionBox = GetComponent<BoxCollider2D>();
-        catCollider = CatSingleton.GetCatSingleton().GetCatCollider();
-    }
+//     void Start()
+//     {
+//         interactionBox = GetComponent<BoxCollider2D>();
+//         //catCollider = CatSingleton.GetCatSingleton().GetCatCollider();
+//     }
 
-    void Update()
-    {
-        if (interactionBox.IsTouching(catCollider)) // change to onTriggerStay for better efficiency
-        {
-            if (!pickedUpItem && Input.GetKey(KeyCode.Space))
-            {
-                Debug.Log("Interacted with item");
-                // Show GUI
-                // Display Options
-                // will fix this later
+//     void Update()
+//     {
+//         if (interactionBox.IsTouching(catCollider)) // change to onTriggerStay for better efficiency
+//         {
+//             if (!pickedUpItem && Input.GetKey(KeyCode.Space))
+//             {
+//                 Debug.Log("Interacted with item");
+//                 // Show GUI
+//                 // Display Options
+//                 // will fix this later
 
-                //pickedUpItem = CatSingleton.GetCatSingleton().GetInventory().AddItemToInventory(this.gameObject);
-                if (pickedUpItem)
-                {
-                    this.gameObject.SetActive(false);
-                    Debug.Log("Picked up item");
-                }
-                pickedUpItem = true;
-            }
-        }
-        else
-        {
-            pickedUpItem = false;
-        }
+//                 //pickedUpItem = CatSingleton.GetCatSingleton().GetInventory().AddItemToInventory(this.gameObject);
+//                 if (pickedUpItem)
+//                 {
+//                     this.gameObject.SetActive(false);
+//                     Debug.Log("Picked up item");
+//                 }
+//                 pickedUpItem = true;
+//             }
+//         }
+//         else
+//         {
+//             pickedUpItem = false;
+//         }
 
-    }
+//     }
 
     // public void OnTriggerEnter2D(Collider2D other) {
     //     if (other.CompareTag("Player"))
@@ -101,4 +101,4 @@ public class ItemInteract : MonoBehaviour
     //     }
     // }
 
-}
+//}

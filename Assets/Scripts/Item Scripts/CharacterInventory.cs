@@ -7,11 +7,15 @@ public class CharacterInventory : MonoBehaviour
     // Start is called before the first frame update
     public Inventory inventory;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.TryGetComponent(out CollectableItem item))
+        if (Input.GetKey(KeyCode.Space))
         {
-            inventory.AddItemToInventory(item.CollectItem());
+            if (other.TryGetComponent(out CollectableItem itemToPickUp))
+            {
+                inventory.AddItemToInventory(itemToPickUp.CollectItem());
+            }
+            
         }
     }
 }

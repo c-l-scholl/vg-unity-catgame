@@ -11,19 +11,9 @@ public class CatSingleton : MonoBehaviour
         m_singleton = this;
     }
 
-    public BoxCollider2D GetCatCollider()
-    {
-        return m_singleton.GetComponent<BoxCollider2D>();
-    }
-
     public QuestManager GetQuestManager()
     {
         return m_singleton.GetComponent<QuestManager>();
-    }
-
-    public Inventory GetInventory()
-    {
-        return m_singleton.GetComponent<Inventory>();
     }
 
     public static CatSingleton GetCatSingleton()

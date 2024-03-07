@@ -12601,6 +12601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1143989569}
   - component: {fileID: 1143989568}
+  - component: {fileID: 1143989571}
   - component: {fileID: 1143989567}
   - component: {fileID: 1143989566}
   - component: {fileID: 1143989565}
@@ -12608,7 +12609,6 @@ GameObject:
   - component: {fileID: 1143989563}
   - component: {fileID: 1143989562}
   - component: {fileID: 1143989570}
-  - component: {fileID: 1143989571}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -27915,8 +27915,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928400792}
-  - component: {fileID: 1928400791}
   - component: {fileID: 1928400793}
+  - component: {fileID: 1928400791}
   - component: {fileID: 1928400795}
   m_Layer: 0
   m_Name: Letter
@@ -28021,7 +28021,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -28035,7 +28035,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.24, y: 1.68}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1928400795
 MonoBehaviour:
@@ -29342,6 +29342,9 @@ MonoBehaviour:
   food: 0
   box: 0
   popUpUI: {fileID: 0}
+  interactionBox: {fileID: 0}
+  catCollider: {fileID: 0}
+  pickedUpItem: 0
 --- !u!61 &2105236449
 BoxCollider2D:
   m_ObjectHideFlags: 0
