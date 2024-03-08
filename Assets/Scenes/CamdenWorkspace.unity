@@ -29264,7 +29264,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2105236447}
   - component: {fileID: 2105236446}
-  - component: {fileID: 2105236448}
   - component: {fileID: 2105236449}
   - component: {fileID: 2105236450}
   m_Layer: 0
@@ -29341,24 +29340,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2105236448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105236445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65638a026836540c49c0e6c60b5003c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food: 0
-  box: 0
-  popUpUI: {fileID: 0}
-  interactionBox: {fileID: 0}
-  catCollider: {fileID: 0}
-  pickedUpItem: 0
 --- !u!61 &2105236449
 BoxCollider2D:
   m_ObjectHideFlags: 0

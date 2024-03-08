@@ -6,13 +6,12 @@ using UnityEngine.TextCore.Text;
 
 // Change the movement style to accept the most recent keypress
 
-public class NewBehaviourScript : MonoBehaviour
+public class CatMovement : MonoBehaviour
 {
     public Animator animator;
     public float speed = 1.5f;
     private float sprintSpeed;
     private float tiredSpeed;
-
     Rigidbody2D rigidBody;
 
 
@@ -21,7 +20,6 @@ public class NewBehaviourScript : MonoBehaviour
     {
         sprintSpeed = speed * 1.5f;
         tiredSpeed = speed * 0.67f;
-
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -29,32 +27,23 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(speed));
+        rigidBody.velocity = CalculateMovement();
+    }
 
-        Vector2 movement;
-        movement.y = 0;
-        movement.x = 0;
-        float horizMove = Input.GetAxisRaw("Horizontal") * speed;
-        
-        if (horizMove > 0)
+    private Vector2 CalculateMovement()
+    {
+        Vector2 movement = Vector2.zero;
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             resetAnimateBool("Right");
-            movement.x = horizMove;
-            if (Input.GetKey(KeyCode.UpArrow)) {
-                movement.y = speed;
-            } else if (Input.GetKey(KeyCode.DownArrow)) {
-                movement.y = -speed;
-            }
+            movement.x = speed;
         }
-        else if (horizMove < 0)
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             resetAnimateBool("Left");
-            movement.x = horizMove;
-            if (Input.GetKey(KeyCode.UpArrow)) {
-                movement.y = speed;
-            } else if (Input.GetKey(KeyCode.DownArrow)) {
-                movement.y = -speed;
-            }
+            movement.x = -speed;
         }
+
         else if (Input.GetKey(KeyCode.UpArrow))
         {
             resetAnimateBool("Up");
@@ -68,13 +57,10 @@ public class NewBehaviourScript : MonoBehaviour
         else
         {
             resetAnimateBool(null);
-            movement.x = 0;
-            movement.y = 0;
             animator.SetFloat("Speed", 0);
         }
 
-        rigidBody.velocity = movement;
-        
+        return movement;
     }
 
     // Sets all animation booleans to false except for the exception
