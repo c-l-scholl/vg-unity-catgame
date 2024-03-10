@@ -9,7 +9,7 @@ using UnityEngine.TextCore.Text;
 public class CatMovement : MonoBehaviour
 {
     public Animator animator;
-    public float speed = 1.5f;
+    public float speed = 10.5f;
     private float sprintSpeed;
     private float tiredSpeed;
     Rigidbody2D rigidBody;
@@ -27,7 +27,8 @@ public class CatMovement : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(speed));
-        rigidBody.velocity = CalculateMovement();
+        //rigidBody.velocity = CalculateMovement();
+        Movement();
     }
 
     private Vector2 CalculateMovement()
@@ -61,6 +62,37 @@ public class CatMovement : MonoBehaviour
         }
 
         return movement;
+    }
+
+    private void Movement()
+    {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 tempVect = new Vector3(h, v, 0);
+        tempVect = tempVect.normalized * speed * Time.deltaTime;
+        rigidBody.MovePosition(rigidBody.transform.position + tempVect);
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            resetAnimateBool("Right");
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            resetAnimateBool("Left");
+        }
+
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            resetAnimateBool("Up");
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            resetAnimateBool("Down");
+        }
+        else
+        {
+            resetAnimateBool(null);
+        }
     }
 
     // Sets all animation booleans to false except for the exception
