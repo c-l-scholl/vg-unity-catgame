@@ -18,6 +18,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     Rigidbody2D rigidBody;
     // UnityEngine.KeyCode lastKey;
+    bool prevHoriz;
+    bool prevVert;
+    float prevVMove;
 
 
     // Start is called before the first frame update
@@ -28,6 +31,9 @@ public class NewBehaviourScript : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody2D>();
         // lastKey = KeyCode.None;
+        prevHoriz = false;
+        prevVert = false;
+        float prevVMove = 0;
     }
 
     // Update is called once per frame
@@ -64,33 +70,31 @@ public class NewBehaviourScript : MonoBehaviour
     
         // }
         if (horizMove != 0 || vertMove != 0) {
-            if (horizMove != 0)
-            {
-                if (horizMove > 0) {
-                    resetAnimateBool("Right");
-                } else {
-                    resetAnimateBool("Left");
+
+            if (horizMove != 0 && vertMove != 0) {
+                Debug.Log("both");
+                if (prevHoriz) {
+                    movement = checkVertical(movement, vertMove);
+                    prevVMove = movement.y;
+                    Debug.Log("checkVert");
+                } else if (prevVert){
+                    movement = checkHorizontal(movement, horizMove);
+                    Debug.Log("checkHoriz");
                 }
-                movement.y = 0;
-                movement.x = horizMove;
-                // movement = checkVertical(movement, vertMove);
+            } else if (horizMove != 0) {
+                Debug.Log("only horiz");
+                movement = checkHorizontal(movement, horizMove);
+            } else {
+                movement = checkVertical(movement, vertMove);
             }
-            if (vertMove != 0)
-            {
-                if (vertMove > 0) {
-                    resetAnimateBool("Up");
-                } else {
-                    resetAnimateBool("Down");
-                }
-                movement.x = 0;
-                movement.y = vertMove;
-                // movement = checkHorizontal(movement, horizMove);
-            }
+            
         }
         else
         {
             resetAnimateBool(null);
             animator.SetFloat("Speed", 0);
+            prevHoriz = false;
+            prevVert = false;
         }
 
         rigidBody.velocity = movement;
@@ -107,6 +111,9 @@ public class NewBehaviourScript : MonoBehaviour
                 }
                 movement.x = 0;
                 movement.y = dir;
+                prevVert = true;
+                prevHoriz = false;
+                prevVMove = dir;
                 // movement = checkHorizontal(movement, horizMove);
             }
 
@@ -123,6 +130,8 @@ public class NewBehaviourScript : MonoBehaviour
                 }
                 movement.y = 0;
                 movement.x = dir;
+                prevHoriz = true;
+                prevVert = false;
                 // movement = checkVertical(movement, vertMove);
             }
 
