@@ -9,13 +9,12 @@ using UnityEngine.TextCore.Text;
 
 // Change the movement style to accept the most recent keypress
 
-public class NewBehaviourScript : MonoBehaviour
+public class CatMovement : MonoBehaviour
 {
     public Animator animator;
-    public float speed = 1.5f;
+    public float speed = 10.5f;
     private float sprintSpeed;
     private float tiredSpeed;
-
     Rigidbody2D rigidBody;
 
     // Start is called before the first frame update
@@ -23,7 +22,6 @@ public class NewBehaviourScript : MonoBehaviour
     {
         sprintSpeed = speed * 1.5f;
         tiredSpeed = speed * 0.67f;
-
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
