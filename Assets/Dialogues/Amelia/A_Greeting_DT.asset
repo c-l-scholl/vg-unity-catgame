@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
-  m_Name: A2_QuestItem
+  m_Script: {fileID: 11500000, guid: aea75c7d88e07ff4399f31e864cb60c5, type: 3}
+  m_Name: A_Greeting_DT
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
-  options: []
+  characterName: 
+  startingSentence: {fileID: 11400000, guid: 70c56b35842bbcc4ba552b056b92fb3b, type: 2}
