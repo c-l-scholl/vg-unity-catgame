@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f963ad32dd75d408873e8960146a5d, type: 3}
-  m_Name: BaconItemData
+  m_Script: {fileID: 11500000, guid: ef8ae0a67b44e264a8946bc915ae5133, type: 3}
+  m_Name: BoxInventory
   m_EditorClassIdentifier: 
-  itemName: Bacon
-  icon: {fileID: 0}
-  description: Food
+  items: []
+  maxItems: 3
