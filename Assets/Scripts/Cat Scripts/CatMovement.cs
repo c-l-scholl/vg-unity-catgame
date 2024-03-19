@@ -17,11 +17,6 @@ public class NewBehaviourScript : MonoBehaviour
     private float tiredSpeed;
 
     Rigidbody2D rigidBody;
-    // UnityEngine.KeyCode lastKey;
-    bool prevHoriz;
-    bool prevVert;
-    float prevVMove;
-
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +25,6 @@ public class NewBehaviourScript : MonoBehaviour
         tiredSpeed = speed * 0.67f;
 
         rigidBody = GetComponent<Rigidbody2D>();
-        // lastKey = KeyCode.None;
-        prevHoriz = false;
-        prevVert = false;
-        float prevVMove = 0;
     }
 
     // Update is called once per frame
@@ -46,55 +37,15 @@ public class NewBehaviourScript : MonoBehaviour
         movement.x = 0;
         float horizMove = Input.GetAxisRaw("Horizontal") * speed;
         float vertMove = Input.GetAxisRaw("Vertical") * speed;
-        
 
-        // UnityEngine.KeyCode key = KeyCode.None;
-
-        
-        // if (horizMove != 0 && vertMove != 0) {
-        //     if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) {
-        //         vertMove = 0;
-        //     } else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
-        //         horizMove = 0;
-        //     }
-        // }
-
-        // checkVertical(movement, key);
-        // checkHorizontal(movement, key);
-        // movement.x = horizMove;
-        // movement.y = vertMove;
-
-        // bool keyCheck = lastKey != key;
-
-        // if (horizMove != 0 && vertMove != 0) {
-    
-        // }
         if (horizMove != 0 || vertMove != 0) {
-
-            if (horizMove != 0 && vertMove != 0) {
-                Debug.Log("both");
-                if (prevHoriz) {
-                    movement = checkVertical(movement, vertMove);
-                    prevVMove = movement.y;
-                    Debug.Log("checkVert");
-                } else if (prevVert){
-                    movement = checkHorizontal(movement, horizMove);
-                    Debug.Log("checkHoriz");
-                }
-            } else if (horizMove != 0) {
-                Debug.Log("only horiz");
-                movement = checkHorizontal(movement, horizMove);
-            } else {
-                movement = checkVertical(movement, vertMove);
-            }
-            
+            movement = checkHorizontal(movement, horizMove);
+            movement = checkVertical(movement, vertMove);
         }
         else
         {
             resetAnimateBool(null);
             animator.SetFloat("Speed", 0);
-            prevHoriz = false;
-            prevVert = false;
         }
 
         rigidBody.velocity = movement;
@@ -109,12 +60,8 @@ public class NewBehaviourScript : MonoBehaviour
                 } else {
                     resetAnimateBool("Down");
                 }
-                movement.x = 0;
+                // movement.x = 0;
                 movement.y = dir;
-                prevVert = true;
-                prevHoriz = false;
-                prevVMove = dir;
-                // movement = checkHorizontal(movement, horizMove);
             }
 
         return movement;
@@ -128,11 +75,8 @@ public class NewBehaviourScript : MonoBehaviour
                 } else {
                     resetAnimateBool("Left");
                 }
-                movement.y = 0;
+                // movement.y = 0;
                 movement.x = dir;
-                prevHoriz = true;
-                prevVert = false;
-                // movement = checkVertical(movement, vertMove);
             }
 
         return movement;
