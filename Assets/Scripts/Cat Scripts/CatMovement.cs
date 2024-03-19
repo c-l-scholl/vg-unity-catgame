@@ -53,31 +53,25 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     private Vector2 checkVertical(Vector2 movement, float dir) {
-        if (dir != 0)
-            {
-                if (dir > 0) {
-                    resetAnimateBool("Up");
-                } else {
-                    resetAnimateBool("Down");
-                }
-                // movement.x = 0;
-                movement.y = dir;
-            }
+        if (dir > 0) {
+            resetAnimateBool("Up");
+        } else if (dir < 0) {
+            resetAnimateBool("Down");
+        }
+        // movement.x = 0;
+        movement.y = dir;
 
         return movement;
     }
 
     private Vector2 checkHorizontal(Vector2 movement, float dir) {
-        if (dir != 0)
-            {
-                if (dir > 0) {
-                    resetAnimateBool("Right");
-                } else {
-                    resetAnimateBool("Left");
-                }
-                // movement.y = 0;
-                movement.x = dir;
-            }
+        if (dir > 0) {
+            resetAnimateBool("Right");
+        } else if (dir < 0) {
+            resetAnimateBool("Left");
+        }
+        // movement.y = 0;
+        movement.x = dir;
 
         return movement;
     }
