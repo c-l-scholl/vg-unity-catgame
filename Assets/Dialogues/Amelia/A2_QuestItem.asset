@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A2_QuestItem
   m_EditorClassIdentifier: 
   text: "You have my toy! Thank you so much!\r"
-  nextSentence: {fileID: 0}
+  nextSentence: {fileID: 11400000, guid: ad5ca5b212c38d344aa99f0eeb0a70ab, type: 2}
   options: []

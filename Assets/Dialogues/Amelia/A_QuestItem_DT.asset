@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: A_QuestItem_DT
   m_EditorClassIdentifier: 
   characterName: Amelia
-  startingSentence: {fileID: 0}
+  startingSentence: {fileID: 11400000, guid: 19348d22b2136df4e86525b0a2105321, type: 2}

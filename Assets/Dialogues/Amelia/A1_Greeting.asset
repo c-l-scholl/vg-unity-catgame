@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A1_Greeting
   m_EditorClassIdentifier: 
   text: "Aww, a cat! Sad, mommy doesn\u2019t let me have a pet."
-  nextSentence: {fileID: 0}
+  nextSentence: {fileID: 11400000, guid: 12bdb342e2092344799d5aaf5c60ddd1, type: 2}
   options: []

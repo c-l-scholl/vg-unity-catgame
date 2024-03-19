@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: A2_Greeting
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: My favorite toy/letter is missing! I'm really sad, kitty.
+  nextSentence: {fileID: 11400000, guid: ad5ca5b212c38d344aa99f0eeb0a70ab, type: 2}
   options: []

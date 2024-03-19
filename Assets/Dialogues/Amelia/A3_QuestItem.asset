@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A3_QuestItem
   m_EditorClassIdentifier: 
   text: "My mommy said that we can\u2019t have pets in the apartment."
-  nextSentence: {fileID: 0}
+  nextSentence: {fileID: 11400000, guid: 3d8bd6223ea538441a0c32e1cfc41ed5, type: 2}
   options: []

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: A1_Helped
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: Hey, little kitty!
+  nextSentence: {fileID: 11400000, guid: 8b44e98a6ac8d87469b9275aad745d30, type: 2}
   options: []
