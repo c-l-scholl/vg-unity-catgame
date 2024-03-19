@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -13,6 +16,10 @@ public class CatMovement : MonoBehaviour
     private float sprintSpeed;
     private float tiredSpeed;
     Rigidbody2D rigidBody;
+    // UnityEngine.KeyCode lastKey;
+    bool prevHoriz;
+    bool prevVert;
+    float prevVMove;
 
 
     // Start is called before the first frame update
@@ -21,78 +28,112 @@ public class CatMovement : MonoBehaviour
         sprintSpeed = speed * 1.5f;
         tiredSpeed = speed * 0.67f;
         rigidBody = GetComponent<Rigidbody2D>();
+        // lastKey = KeyCode.None;
+        prevHoriz = false;
+        prevVert = false;
+        float prevVMove = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(speed));
-        //rigidBody.velocity = CalculateMovement();
-        Movement();
-    }
 
-    private Vector2 CalculateMovement()
-    {
-        Vector2 movement = Vector2.zero;
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            resetAnimateBool("Right");
-            movement.x = speed;
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            resetAnimateBool("Left");
-            movement.x = -speed;
-        }
+        Vector2 movement;
+        movement.y = 0;
+        movement.x = 0;
+        float horizMove = Input.GetAxisRaw("Horizontal") * speed;
+        float vertMove = Input.GetAxisRaw("Vertical") * speed;
+        
 
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            resetAnimateBool("Up");
-            movement.y = speed;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            resetAnimateBool("Down");
-            movement.y = -speed;
+        // UnityEngine.KeyCode key = KeyCode.None;
+
+        
+        // if (horizMove != 0 && vertMove != 0) {
+        //     if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+        //         vertMove = 0;
+        //     } else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
+        //         horizMove = 0;
+        //     }
+        // }
+
+        // checkVertical(movement, key);
+        // checkHorizontal(movement, key);
+        // movement.x = horizMove;
+        // movement.y = vertMove;
+
+        // bool keyCheck = lastKey != key;
+
+        // if (horizMove != 0 && vertMove != 0) {
+    
+        // }
+        if (horizMove != 0 || vertMove != 0) {
+
+            if (horizMove != 0 && vertMove != 0) {
+                Debug.Log("both");
+                if (prevHoriz) {
+                    movement = checkVertical(movement, vertMove);
+                    prevVMove = movement.y;
+                    Debug.Log("checkVert");
+                } else if (prevVert){
+                    movement = checkHorizontal(movement, horizMove);
+                    Debug.Log("checkHoriz");
+                }
+            } else if (horizMove != 0) {
+                Debug.Log("only horiz");
+                movement = checkHorizontal(movement, horizMove);
+            } else {
+                movement = checkVertical(movement, vertMove);
+            }
+            
         }
         else
         {
             resetAnimateBool(null);
             animator.SetFloat("Speed", 0);
+            prevHoriz = false;
+            prevVert = false;
         }
+
+        rigidBody.velocity = movement;
+        
+    }
+
+    private Vector2 checkVertical(Vector2 movement, float dir) {
+        if (dir != 0)
+            {
+                if (dir > 0) {
+                    resetAnimateBool("Up");
+                } else {
+                    resetAnimateBool("Down");
+                }
+                movement.x = 0;
+                movement.y = dir;
+                prevVert = true;
+                prevHoriz = false;
+                prevVMove = dir;
+                // movement = checkHorizontal(movement, horizMove);
+            }
 
         return movement;
     }
 
-    private void Movement()
-    {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+    private Vector2 checkHorizontal(Vector2 movement, float dir) {
+        if (dir != 0)
+            {
+                if (dir > 0) {
+                    resetAnimateBool("Right");
+                } else {
+                    resetAnimateBool("Left");
+                }
+                movement.y = 0;
+                movement.x = dir;
+                prevHoriz = true;
+                prevVert = false;
+                // movement = checkVertical(movement, vertMove);
+            }
 
-        Vector3 tempVect = new Vector3(h, v, 0);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
-        rigidBody.MovePosition(rigidBody.transform.position + tempVect);
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            resetAnimateBool("Right");
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            resetAnimateBool("Left");
-        }
-
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            resetAnimateBool("Up");
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            resetAnimateBool("Down");
-        }
-        else
-        {
-            resetAnimateBool(null);
-        }
+        return movement;
     }
 
     // Sets all animation booleans to false except for the exception
