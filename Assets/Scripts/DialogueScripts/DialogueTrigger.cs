@@ -10,6 +10,8 @@ public class DialogueTrigger : MonoBehaviour
     public DialogueManager dialogueManager;
 
     public void OnTriggerEnter(Collider other){
-        dialogueManager.StartDialogue(dialogue);
+
+
+        // dialogueManager.StartDialogue(dialogue);
     }
 }
