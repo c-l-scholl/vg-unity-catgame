@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.TextCore.Text;
 
 // Change the movement style to accept the most recent keypress
@@ -23,6 +24,15 @@ public class CatMovement : MonoBehaviour
         sprintSpeed = speed * 1.5f;
         tiredSpeed = speed * 0.67f;
         rigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    public void disableMovement() {
+        resetAnimateBool(null);
+        this.enabled = false;
+    }
+
+    public void enableMovement() {
+        this.enabled = true;
     }
 
     // Update is called once per frame
