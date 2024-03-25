@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: D3_QuestItem
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: After that. I can possibly use it to let you cross the river in to the next
+    town. How does that sound?
+  nextSentence: {fileID: 11400000, guid: e65b1fde67f4c384ebc12e975ab8c224, type: 2}
   options: []

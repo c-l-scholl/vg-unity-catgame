@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: C3_QuestItem
   m_EditorClassIdentifier: 
-  text: text
+  text: Now I can unblock the grate!
   nextSentence: {fileID: 0}
   options: []

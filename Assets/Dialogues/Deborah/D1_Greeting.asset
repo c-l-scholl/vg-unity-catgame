@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: D1_Greeting
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: Poor Marina. Still can't get her kite down from the tree.
+  nextSentence: {fileID: 11400000, guid: 67695a06e1506e347971a830a7b7cc15, type: 2}
   options: []

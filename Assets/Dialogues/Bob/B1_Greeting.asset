@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: B1_Greeting
   m_EditorClassIdentifier: 
   text: I can't move my stuff yet!
-  nextSentence: {fileID: 0}
+  nextSentence: {fileID: 11400000, guid: ff92c14a155b66f43a5c2676aa77c3e1, type: 2}
   options: []

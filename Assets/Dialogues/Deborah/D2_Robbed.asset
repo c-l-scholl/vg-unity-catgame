@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: D2_Robbed
   m_EditorClassIdentifier: 
-  text: text
+  text: This is why vermin like you aren't allowed in this city!
   nextSentence: {fileID: 0}
   options: []

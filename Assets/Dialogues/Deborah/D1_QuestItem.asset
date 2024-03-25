@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: D1_QuestItem
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
-  options: []
+  text: Oh, hello cat!
+  nextSentence: {fileID: 11400000}
+  options:
+  - text: Give item
+    nextSentence: {fileID: 11400000, guid: b3cef27baaf04f04193d10c49f4da456, type: 2}
+    onOptionSelected: {fileID: 0}
+  - text: Don't give item
+    nextSentence: {fileID: 11400000, guid: b70cf00dda7f45542a272141d0df32f5, type: 2}
+    onOptionSelected: {fileID: 0}

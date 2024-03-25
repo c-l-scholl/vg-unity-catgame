@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: C1_QuestItem
   m_EditorClassIdentifier: 
-  text: text
+  text: Hey, what's that you got there?
   nextSentence: {fileID: 0}
-  options: []
+  options:
+  - text: Give item
+    nextSentence: {fileID: 11400000, guid: 5aaa7bf188871ca41a9c4cdf028a6c0f, type: 2}
+    onOptionSelected: {fileID: 0}
+  - text: Don't give item
+    nextSentence: {fileID: 11400000, guid: 3a0b72f3d7fd965459d6f44b8eabf0b3, type: 2}
+    onOptionSelected: {fileID: 0}

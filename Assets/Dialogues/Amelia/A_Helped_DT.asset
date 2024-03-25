@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea75c7d88e07ff4399f31e864cb60c5, type: 3}
   m_Name: A_Helped_DT
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Amelia
   startingSentence: {fileID: 11400000, guid: 592c8a1a0d794e44da6906f041e7a1fa, type: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: C_QuestItem_DT
   m_EditorClassIdentifier: 
   characterName: 
-  startingSentence: {fileID: 0}
+  startingSentence: {fileID: 11400000, guid: 2453589afec0af347a73d33fe7abe365, type: 2}

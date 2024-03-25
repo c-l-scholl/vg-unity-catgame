@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: B1_Helped
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: I heard you helped that maintenance guy!
+  nextSentence: {fileID: 11400000, guid: 7bda6fec2c713074f96807e3fa4ceb2e, type: 2}
   options: []

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: C1_Greeting
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: I can't do my job like this!
+  nextSentence: {fileID: 11400000, guid: c3b12db6738989048b1e7f50e23588dc, type: 2}
   options: []
