@@ -10,6 +10,7 @@ public class InventoryItemData : ScriptableObject
 {
     public string itemName;
     public Sprite icon;
+    public GameObject model;
     [TextArea]
     public string description;
 
