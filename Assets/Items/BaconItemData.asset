@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bacon
   icon: {fileID: 0}
-  description: Food
+  model: {fileID: 0}
+  description: 

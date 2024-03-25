@@ -9400,7 +9400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   littleGirl: {fileID: 835326291}
   questItem: {fileID: 11400000, guid: 8211b6d6e4eb3c34981420353cf10e95, type: 2}
-  L2: {fileID: 0}
+  L2: {fileID: 649651676}
   catInventory: {fileID: 11400000, guid: 8f448ba494a50d544ba69936fdc86876, type: 2}
 --- !u!4 &624547523
 Transform:
@@ -28312,7 +28312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634e228930f79cf42b0d6bb0727d5716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMultiplier: 60
+  timeMultiplier: 120
   startTime: 6
   timeText: {fileID: 252716824}
 --- !u!1 &1928400790
@@ -29793,7 +29793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef403ea13963a22418f4ffedcd5628cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 570f6f4da0912a246b500c91ea1f2fe7, type: 2}
+  item: {fileID: 0}
 --- !u!1 &2108484010
 GameObject:
   m_ObjectHideFlags: 0

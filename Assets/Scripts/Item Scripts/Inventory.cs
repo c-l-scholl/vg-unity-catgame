@@ -26,7 +26,22 @@ public class Inventory : ScriptableObject
         }
         Debug.Log("No inventory slots open");
         return false;
-        
+
+    }
+
+    public void DropItem(int itemIndex)
+    {
+        // Creates a new object and gives it the item data
+        // GameObject droppedItem = new GameObject();
+        // droppedItem.AddComponent<Rigidbody>();
+        // droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
+        // GameObject itemModel = Instantiate(inventory.items[itemIndex].itemType.model, droppedItem.transform);
+
+        // // Removes the item from the inventory
+        // inventory.items.RemoveAt(itemIndex);
+
+        // // Updates the inventory again
+        // UpdateInventory();
     }
 
     public bool RemoveItemFromInventory(InventoryItemData itemToRemove)
