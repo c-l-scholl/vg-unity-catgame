@@ -14,4 +14,9 @@ public class InventoryItemData : ScriptableObject
     [TextArea]
     public string description;
 
+
+    public Sprite GetSprite() {
+        return icon;
+    }
+
 }
