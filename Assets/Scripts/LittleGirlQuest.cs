@@ -32,7 +32,6 @@ public class LittleGirlQuest : MonoBehaviour
 		{
 			case QuestProgress.HAVENT_MET:
 				// initial dialogue
-				Debug.Log("Hey there kitty");
 				if (catInventory.RemoveItemFromInventory(questItem))
 				{
 					currentQuestProg = QuestProgress.QUEST_COMPLETE;
@@ -59,7 +58,6 @@ public class LittleGirlQuest : MonoBehaviour
 				break;
 			case QuestProgress.QUEST_COMPLETE:
 				// basic dialogue
-				Debug.Log("Wow thank you so much for my letter (i guess)");
 				break;
 		}
 	}
