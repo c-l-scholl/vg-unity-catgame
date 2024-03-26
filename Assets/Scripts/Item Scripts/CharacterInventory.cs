@@ -27,4 +27,12 @@ public class CharacterInventory : MonoBehaviour
                 pickedUpItem = false;
             }
     }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.D) && inventory.items.Count > 0) 
+        {
+            inventory.DropItem(0);
+        }
+    }
 }

@@ -32,15 +32,13 @@ public class Inventory : ScriptableObject
     public void DropItem(int itemIndex)
     {
         // Creates a new object and gives it the item data
-        // GameObject droppedItem = new GameObject();
-        // droppedItem.AddComponent<Rigidbody>();
-        // droppedItem.AddComponent<InstanceItemContainer>().item = inventory.items[itemIndex];
-        // GameObject itemModel = Instantiate(inventory.items[itemIndex].itemType.model, droppedItem.transform);
+        GameObject itemModel = Instantiate(items[itemIndex].model);
+        itemModel.transform.position = CatSingleton.GetCatSingleton().transform.position;
 
-        // // Removes the item from the inventory
-        // inventory.items.RemoveAt(itemIndex);
+        // Removes the item from the inventory
+        items.RemoveAt(itemIndex);
 
-        // // Updates the inventory again
+        // Updates the inventory again in UI
         // UpdateInventory();
     }
 
