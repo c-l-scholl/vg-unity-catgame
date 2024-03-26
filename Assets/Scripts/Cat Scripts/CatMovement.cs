@@ -13,25 +13,40 @@ using UnityEngine.TextCore.Text;
 public class CatMovement : MonoBehaviour
 {
     public Animator animator;
-    public float speed = 10.5f;
+    public Rigidbody2D rigidBody;
+
+    private enum SprintState
+    {
+        WALKING,
+        SPRINTING,
+        EXHAUSTED
+    }
+    private SprintState currentSprintState = SprintState.WALKING;
+    private readonly float MAX_STAMINA = 15f;
+    private readonly float DRAIN_RATE = 5f;
+    private readonly float RECHARGE_RATE = 3f;
+    private float currentStamina;
+    public float speed = 2f;
     private float sprintSpeed;
     private float tiredSpeed;
-    Rigidbody2D rigidBody;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        sprintSpeed = speed * 1.5f;
-        tiredSpeed = speed * 0.67f;
         rigidBody = GetComponent<Rigidbody2D>();
+        currentStamina = MAX_STAMINA;
+        sprintSpeed = 2f * speed;
+        tiredSpeed = 0.5f * speed;
     }
 
-    public void disableMovement() {
+    public void disableMovement()
+    {
         resetAnimateBool(null);
         this.enabled = false;
     }
 
-    public void enableMovement() {
+    public void enableMovement()
+    {
         this.enabled = true;
     }
 
@@ -39,14 +54,59 @@ public class CatMovement : MonoBehaviour
     void Update()
     {
         animator.SetFloat("Speed", Mathf.Abs(speed));
+        rigidBody.velocity = MovementHandling();
+    }
 
-        Vector2 movement;
-        movement.y = 0;
-        movement.x = 0;
-        float horizMove = Input.GetAxisRaw("Horizontal") * speed;
-        float vertMove = Input.GetAxisRaw("Vertical") * speed;
-
-        if (horizMove != 0 || vertMove != 0) {
+    private Vector2 MovementHandling()
+    {
+        Vector2 movement = Vector2.zero;
+        float horizMove = Input.GetAxisRaw("Horizontal"); 
+        float vertMove = Input.GetAxisRaw("Vertical"); 
+        switch (currentSprintState)
+        {
+            case SprintState.WALKING:
+                if (Input.GetKeyDown(KeyCode.LeftShift) && (horizMove != 0 || vertMove != 0))
+                {
+                    currentSprintState = SprintState.SPRINTING;
+                }
+                else
+                {
+                    horizMove *= speed;
+                    vertMove *= speed;
+                }
+                break;
+            case SprintState.SPRINTING:
+                if (currentStamina <= 0.1f)
+                {
+                    currentSprintState = SprintState.EXHAUSTED;
+                }
+                else if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    horizMove *= sprintSpeed;
+                    vertMove *= sprintSpeed;
+                    currentStamina -= Time.deltaTime * DRAIN_RATE;
+                }
+                else
+                {
+                    currentSprintState = SprintState.WALKING;
+                }
+                break;
+            case SprintState.EXHAUSTED:
+                if (currentStamina < MAX_STAMINA)
+                {
+                    currentStamina += Time.deltaTime * RECHARGE_RATE;
+                    horizMove *= tiredSpeed;
+                    vertMove *= tiredSpeed;
+                }
+                else if (currentStamina >= MAX_STAMINA)
+                {
+                    currentStamina = MAX_STAMINA;
+                    currentSprintState = SprintState.WALKING;
+                }
+                break;
+        }
+        if (horizMove != 0 || vertMove != 0)
+        {
             movement = checkHorizontal(movement, horizMove);
             movement = checkVertical(movement, vertMove);
         }
@@ -54,16 +114,18 @@ public class CatMovement : MonoBehaviour
         {
             resetAnimateBool(null);
             animator.SetFloat("Speed", 0);
-        }
-
-        rigidBody.velocity = movement;
-        
+        } 
+        return movement;
     }
 
-    private Vector2 checkVertical(Vector2 movement, float dir) {
-        if (dir > 0) {
+    private Vector2 checkVertical(Vector2 movement, float dir)
+    {
+        if (dir > 0)
+        {
             resetAnimateBool("Up");
-        } else if (dir < 0) {
+        }
+        else if (dir < 0)
+        {
             resetAnimateBool("Down");
         }
         // movement.x = 0;
@@ -72,10 +134,14 @@ public class CatMovement : MonoBehaviour
         return movement;
     }
 
-    private Vector2 checkHorizontal(Vector2 movement, float dir) {
-        if (dir > 0) {
+    private Vector2 checkHorizontal(Vector2 movement, float dir)
+    {
+        if (dir > 0)
+        {
             resetAnimateBool("Right");
-        } else if (dir < 0) {
+        }
+        else if (dir < 0)
+        {
             resetAnimateBool("Left");
         }
         // movement.y = 0;
