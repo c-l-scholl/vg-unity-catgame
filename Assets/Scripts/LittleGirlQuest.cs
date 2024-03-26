@@ -7,7 +7,6 @@ public class LittleGirlQuest : MonoBehaviour
 	public GameObject littleGirl;
 	public InventoryItemData questItem;
 	public GameObject L2; // or the rest of the map or something
-
 	public Inventory catInventory;
 
 
@@ -27,7 +26,6 @@ public class LittleGirlQuest : MonoBehaviour
 	public void AdvanceQuest() // needs access to Player's inventory
 	{
 		// state machine based on quest
-		Debug.Log("Received Quest Advance Call");
 		switch (currentQuestProg)
 		{
 			case QuestProgress.HAVENT_MET:

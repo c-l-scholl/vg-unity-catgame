@@ -24,12 +24,21 @@ public class BoxInteraction : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !interacting)
         {
             interactWithBox.Invoke();
-            // if (other.TryGetComponent(out CatMovement movement)) {
-            //     movement.enabled = false;
-            // }
+            if (other.TryGetComponent(out CatMovement movement)) {
+                movement.enabled = false;
+            }
             interacting = true;
             boxUI.GetComponent<Canvas>().enabled = true;
         }
+    }
+
+    public void ExitInteraction(Collider other) {
+        if (other.TryGetComponent(out CatMovement movement)) 
+        {
+            movement.enabled = true;
+        }
+        interacting = false;
+        boxUI.GetComponent<Canvas>().enabled = false;
     }
 
     private void OnTriggerExit2D(Collider2D other)
