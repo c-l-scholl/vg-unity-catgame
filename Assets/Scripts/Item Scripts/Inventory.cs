@@ -24,7 +24,6 @@ public class Inventory : ScriptableObject
             items.Add(itemToAdd);
             return true;
         }
-        Debug.Log("No inventory slots open");
         return false;
 
     }
