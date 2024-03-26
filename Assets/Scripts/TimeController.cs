@@ -24,7 +24,7 @@ public class TimeController : MonoBehaviour
     {
 
         if (secondsSum >= SECONDS_TO_ADD) {
-            UpdateTimeOfDay(secondsSum);
+            UpdateTimeOfDay(SECONDS_TO_ADD);
             secondsSum = 0;
         }
         secondsSum += Time.deltaTime * timeMultiplier;

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Letter
   icon: {fileID: 0}
+  model: {fileID: 691640308884645869, guid: 2e73a98a619c70b47b2140ebf4ce26f1, type: 3}
   description: Quest item for little girl
