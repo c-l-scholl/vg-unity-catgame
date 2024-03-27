@@ -8,14 +8,22 @@ using UnityEngine.UIElements.Experimental;
 public class BoxInteraction : MonoBehaviour
 {
     private bool interacting;
-    public GameObject boxUI;
     public UnityEvent interactWithBox;
+    public UnityEvent endBoxInteraction;
 
     void Start()
     {
         interacting = false;
         if (interactWithBox == null) {
             interactWithBox = new UnityEvent();
+            endBoxInteraction = new UnityEvent();
+        }
+    }
+
+    private void Update() {
+        if (Input.GetKey(KeyCode.Escape) && interacting) {
+            interacting = false;
+            endBoxInteraction.Invoke();
         }
     }
 
@@ -24,11 +32,7 @@ public class BoxInteraction : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !interacting)
         {
             interactWithBox.Invoke();
-            if (other.TryGetComponent(out CatMovement movement)) {
-                movement.enabled = false;
-            }
             interacting = true;
-            boxUI.GetComponent<Canvas>().enabled = true;
         }
     }
 
@@ -38,7 +42,7 @@ public class BoxInteraction : MonoBehaviour
             movement.enabled = true;
         }
         interacting = false;
-        boxUI.GetComponent<Canvas>().enabled = false;
+        //boxUI.GetComponent<Canvas>().enabled = false;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -47,6 +51,6 @@ public class BoxInteraction : MonoBehaviour
             movement.enabled = true;
         }
         interacting = false;
-        boxUI.GetComponent<Canvas>().enabled = false;
+        // boxUI.GetComponent<Canvas>().enabled = false;
     }
 }

@@ -8,6 +8,10 @@ public class Inventory : ScriptableObject
     public List<InventoryItemData> items = new List<InventoryItemData>();
     public int maxItems;
 
+    // public bool TransferItem() {
+
+    // }
+
     public bool AddItemToInventory(InventoryItemData itemToAdd)
     {
         for (int i = 0; i < items.Count; i++)
@@ -45,4 +49,6 @@ public class Inventory : ScriptableObject
     {
         return items.Remove(itemToRemove);
     }
+
+    // public void 
 }
