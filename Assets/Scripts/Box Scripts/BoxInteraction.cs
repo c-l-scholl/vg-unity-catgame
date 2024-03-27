@@ -14,43 +14,20 @@ public class BoxInteraction : MonoBehaviour
     void Start()
     {
         interacting = false;
-        if (interactWithBox == null) {
-            interactWithBox = new UnityEvent();
-            endBoxInteraction = new UnityEvent();
-        }
     }
 
-    private void Update() {
-        if (Input.GetKey(KeyCode.Escape) && interacting) {
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape) && interacting)
+        {
             interacting = false;
             endBoxInteraction.Invoke();
         }
-    }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
         if (Input.GetKey(KeyCode.Space) && !interacting)
         {
             interactWithBox.Invoke();
             interacting = true;
         }
-    }
-
-    public void ExitInteraction(Collider other) {
-        if (other.TryGetComponent(out CatMovement movement)) 
-        {
-            movement.enabled = true;
-        }
-        interacting = false;
-        //boxUI.GetComponent<Canvas>().enabled = false;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out CatMovement movement)) {
-            movement.enabled = true;
-        }
-        interacting = false;
-        // boxUI.GetComponent<Canvas>().enabled = false;
     }
 }
