@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 using TMPro;
 
@@ -13,6 +14,7 @@ public class TimeController : MonoBehaviour
     private DateTime currentTime;
     private float secondsSum;
     private readonly float SECONDS_TO_ADD = 300f;
+    public UnityEvent sleepCutscene;
     void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startTime);
@@ -22,13 +24,17 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (secondsSum >= SECONDS_TO_ADD) {
             UpdateTimeOfDay(SECONDS_TO_ADD);
             secondsSum = 0;
         }
         secondsSum += Time.deltaTime * timeMultiplier;
-        
+        if (currentTime >= DateTime.Now.Date + TimeSpan.FromHours(startTime + 15f))
+        {
+            sleepCutscene.Invoke();
+            currentTime = DateTime.Now.Date + TimeSpan.FromHours(startTime);
+        }
+
     }
 
     private void UpdateTimeOfDay(float seconds)

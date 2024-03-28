@@ -11,8 +11,7 @@ public class CatHealth : MonoBehaviour
     public int maxHP = 9;
     private int currentHP;
     private float elapsed;
-    private readonly float TIME_TO_DECREASE_HEALTH = 113.3f;
-
+    private readonly float TIME_TO_DECREASE_HEALTH = 225f;
 
     void Start()
     {
