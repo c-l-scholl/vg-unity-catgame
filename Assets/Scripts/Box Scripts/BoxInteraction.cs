@@ -24,7 +24,7 @@ public class BoxInteraction : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
 
-        if (other.TryGetComponent(out CollectableItem itemToPickUp))
+        if (other.TryGetComponent(out CollectableItem itemToPickUp) && interacting)
         {
             uiInventory.AddNewItem(itemToPickUp.CollectItem());
         }
