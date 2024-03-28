@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,29 +12,30 @@ public class BoxInteraction : MonoBehaviour
     void Start()
     {
         interacting = false;
-        interactWithBox = new UnityEvent();
-        endBoxInteraction = new UnityEvent();
     }
 
     private void Update() {
-        // if (Input.GetKey(KeyCode.Escape) && interacting) {
-        //     interacting = false;
-        //     endBoxInteraction.Invoke();
-        // }
+        if (Input.GetKey(KeyCode.Escape) && interacting) {
+            interacting = false;
+            endBoxInteraction.Invoke();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKey(KeyCode.Space) && other.TryGetComponent(out CatMovement catMovement))
+
+        if (other.TryGetComponent(out CollectableItem itemToPickUp))
+        {
+            uiInventory.AddNewItem(itemToPickUp.CollectItem());
+        }
+
+        if (Input.GetKey(KeyCode.Space) && !interacting)
         {
             interactWithBox.Invoke();
             interacting = true;
         }
 
-        // if (other.TryGetComponent(out CollectableItem itemToPickUp))
-        // {
-        //     uiInventory.AddNewItem(itemToPickUp.CollectItem());
-        // }
+        
     }
 
     // private void OnTriggerExit2D(Collider2D other)

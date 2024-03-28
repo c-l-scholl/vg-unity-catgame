@@ -28,14 +28,4 @@ public class UIInventory : MonoBehaviour
     public void RemoveItem(InventoryItemData item) {
         UpdateSlot(uiItems.FindIndex(i => i.item == item), null);
     }
-
-    // private void OnTriggerStay2D(Collider2D other)
-    // {
-    //     if (other.TryGetComponent(out CollectableItem itemToPickUp))
-    //     {
-    //         AddNewItem(itemToPickUp.CollectItem());
-    //         itemToPickUp.CollectItem();
-    //     }
-        
-    // }
 }

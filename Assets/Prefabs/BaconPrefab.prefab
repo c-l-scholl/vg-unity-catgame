@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3832294176703717272}
   - component: {fileID: -1010453135247075767}
   - component: {fileID: -226950708021727295}
+  - component: {fileID: 5236599267188860268}
   m_Layer: 0
   m_Name: BaconPrefab
   m_TagString: Untagged
@@ -144,3 +145,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 570f6f4da0912a246b500c91ea1f2fe7, type: 2}
+--- !u!50 &5236599267188860268
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380226595079831947}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
