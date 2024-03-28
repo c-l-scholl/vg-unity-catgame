@@ -6,7 +6,6 @@ public class CharacterInventory : MonoBehaviour
 {
     public Inventory inventory;
     private bool pickedUpItem = false;
-    public Inventory storage;
 
     private void OnTriggerStay2D(Collider2D other)
     {

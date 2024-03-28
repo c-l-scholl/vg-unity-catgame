@@ -31,10 +31,15 @@ public class TimeController : MonoBehaviour
         secondsSum += Time.deltaTime * timeMultiplier;
         if (currentTime >= DateTime.Now.Date + TimeSpan.FromHours(startTime + 15f))
         {
-            sleepCutscene.Invoke();
-            currentTime = DateTime.Now.Date + TimeSpan.FromHours(startTime);
+            ResetTimeToMorning();
         }
 
+    }
+
+    public void ResetTimeToMorning()
+    {
+        sleepCutscene.Invoke();
+        currentTime = DateTime.Now.Date + TimeSpan.FromHours(startTime);
     }
 
     private void UpdateTimeOfDay(float seconds)
