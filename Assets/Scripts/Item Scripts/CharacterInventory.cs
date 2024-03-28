@@ -31,8 +31,14 @@ public class CharacterInventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.X) && inventory.items.Count > 0) 
+        if (Input.GetKey(KeyCode.X)) 
         {
+            TransferItem();
+        }
+    }
+
+    public void TransferItem() {
+        if (inventory.items.Count > 0) {
             inventory.DropItem(0);
         }
     }

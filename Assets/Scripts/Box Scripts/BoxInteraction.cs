@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements.Experimental;
 
 public class BoxInteraction : MonoBehaviour
 {
     private bool interacting;
+    public UIInventory uiInventory;
     public UnityEvent interactWithBox;
     public UnityEvent endBoxInteraction;
 
@@ -16,10 +14,8 @@ public class BoxInteraction : MonoBehaviour
         interacting = false;
     }
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape) && interacting)
-        {
+    private void Update() {
+        if (Input.GetKey(KeyCode.Escape) && interacting) {
             interacting = false;
             endBoxInteraction.Invoke();
         }
@@ -27,17 +23,23 @@ public class BoxInteraction : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+
+        if (other.TryGetComponent(out CollectableItem itemToPickUp))
+        {
+            uiInventory.AddNewItem(itemToPickUp.CollectItem());
+        }
+
         if (Input.GetKey(KeyCode.Space) && !interacting)
         {
             interactWithBox.Invoke();
             interacting = true;
         }
+
+        
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        interacting = false;
-    }
-
-    
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     interacting = false;
+    // }
 }
