@@ -41,6 +41,7 @@ public class CatMovement : MonoBehaviour
 
     public void disableMovement()
     {
+        rigidBody.velocity = new Vector2(0,0);
         resetAnimateBool(null);
         this.enabled = false;
     }
