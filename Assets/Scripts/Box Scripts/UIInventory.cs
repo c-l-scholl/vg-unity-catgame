@@ -8,6 +8,7 @@ public class UIInventory : MonoBehaviour
     public GameObject slotPrefab;
     public Transform slotPanel;
     public int numberOfSlots = 3;
+    public Vector2 dropLocation;
 
     private void Awake() {
         for (int i = 0; i < numberOfSlots; i ++) {
@@ -27,5 +28,13 @@ public class UIInventory : MonoBehaviour
 
     public void RemoveItem(InventoryItemData item) {
         UpdateSlot(uiItems.FindIndex(i => i.item == item), null);
+    }
+
+    public void RemoveFirstItem() {
+        if (uiItems[0].item != null) {
+            GameObject itemModel = Instantiate(uiItems[0].item.model);
+            itemModel.transform.position = new Vector3(dropLocation.x, dropLocation.y, 0);
+            uiItems[0].UpdateItem(null);
+        }
     }
 }

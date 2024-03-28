@@ -17,16 +17,12 @@ public class CharacterInventory : MonoBehaviour
                 inventory.AddItemToInventory(itemToPickUp.CollectItem());
                 pickedUpItem = true;
             }
-            
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.TryGetComponent(out CollectableItem itemToPickUp))
-            {
-                pickedUpItem = false;
-            }
+        pickedUpItem = false;
     }
 
     void Update()
@@ -40,6 +36,7 @@ public class CharacterInventory : MonoBehaviour
     public void TransferItem() {
         if (inventory.items.Count > 0) {
             inventory.DropItem(0);
+            pickedUpItem = false;
         }
     }
 }
