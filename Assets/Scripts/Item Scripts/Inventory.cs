@@ -50,5 +50,9 @@ public class Inventory : ScriptableObject
         return items.Remove(itemToRemove);
     }
 
-    // public void 
+    public InventoryItemData RemoveItemFromInventory(int itemIndex) {
+        InventoryItemData item = items[itemIndex];
+        items.RemoveAt(itemIndex);
+        return item;
+    }
 }

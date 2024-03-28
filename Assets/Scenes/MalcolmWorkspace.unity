@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 12615082}
   - component: {fileID: 12615081}
   m_Layer: 0
-  m_Name: BoxCanvas
+  m_Name: BoxOptionsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,8 +566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 140, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &98358398
 MonoBehaviour:
@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.0990566, g: 0.67098016, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -613,13 +613,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 993929028}
+        m_TargetAssemblyTypeName: CharacterInventory, Assembly-CSharp
+        m_MethodName: TransferItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4543,6 +4543,18 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8997499070037728776, guid: d66ad3758431a4b6bb3770ba57163d10, type: 3}
+      propertyPath: m_Radius
+      value: 0.31642428
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997499070037728776, guid: d66ad3758431a4b6bb3770ba57163d10, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0111228125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997499070037728776, guid: d66ad3758431a4b6bb3770ba57163d10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5225,8 +5237,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9051,6 +9063,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f54de94b1538a4b5a9be50fe241d41a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &993929028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7684793968404954274, guid: d66ad3758431a4b6bb3770ba57163d10, type: 3}
+  m_PrefabInstance: {fileID: 705531173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993929019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a35f99eafaf624f8b1b592b83dd283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &994211452
@@ -19474,6 +19497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eb490616d05b645ad2da20723f9ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiInventory: {fileID: 757588745}
   interactWithBox:
     m_PersistentCalls:
       m_Calls:
@@ -19588,7 +19612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 30c73789567b8804f9253393373509e9, type: 2}
-  storage: {fileID: 0}
+  storage: {fileID: 11400000, guid: 30c73789567b8804f9253393373509e9, type: 2}
 --- !u!1001 &1016427094
 PrefabInstance:
   m_ObjectHideFlags: 0
