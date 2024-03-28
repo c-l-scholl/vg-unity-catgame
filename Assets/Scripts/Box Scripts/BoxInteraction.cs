@@ -23,11 +23,21 @@ public class BoxInteraction : MonoBehaviour
             interacting = false;
             endBoxInteraction.Invoke();
         }
+    }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
         if (Input.GetKey(KeyCode.Space) && !interacting)
         {
             interactWithBox.Invoke();
             interacting = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        interacting = false;
+    }
+
+    
 }
