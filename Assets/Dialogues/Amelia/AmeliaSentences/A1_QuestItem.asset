@@ -17,7 +17,11 @@ MonoBehaviour:
   options:
   - text: Give item
     nextSentence: {fileID: 11400000, guid: 0ebc9c421231a834087cb7644e2167e1, type: 2}
-    onOptionSelected: {fileID: 0}
+    onOptionSelected:
+      m_PersistentCalls:
+        m_Calls: []
   - text: Don't give item
     nextSentence: {fileID: 11400000, guid: 12bdb342e2092344799d5aaf5c60ddd1, type: 2}
-    onOptionSelected: {fileID: 0}
+    onOptionSelected:
+      m_PersistentCalls:
+        m_Calls: []

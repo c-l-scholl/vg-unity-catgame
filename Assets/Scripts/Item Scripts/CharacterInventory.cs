@@ -24,18 +24,8 @@ public class CharacterInventory : MonoBehaviour
         pickedUpItem = false;
     }
 
-    void Update()
+    public void SetPickedUpItem(bool isItemPickedUp)
     {
-        if (Input.GetKey(KeyCode.X)) 
-        {
-            TransferItem();
-        }
-    }
-
-    public void TransferItem() {
-        if (inventory.items.Count > 0) {
-            inventory.DropItem(0);
-            pickedUpItem = false;
-        }
+        pickedUpItem = isItemPickedUp;
     }
 }
