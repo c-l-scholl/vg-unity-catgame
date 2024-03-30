@@ -8,9 +8,8 @@ public class LittleGirlQuest : MonoBehaviour
 	public InventoryItemData questItem;
 	public GameObject L2; // or the rest of the map or something
 	public Inventory catInventory;
-
+	private CharacterInventory littleGirlInventory;
     public DialogueManager dialogueManager;
-
 	public DialogueTree questIncomplete;
 	public DialogueTree questCompleted;
 	public DialogueTree questItemAcquired;
@@ -28,6 +27,7 @@ public class LittleGirlQuest : MonoBehaviour
 	void Start()
 	{
 		currentQuestProg = QuestProgress.QUEST_INCOMPLETE;
+		littleGirlInventory = GetComponent<CharacterInventory>();
 	}
 
 	public void AdvanceQuest() // needs access to Player's inventory
@@ -37,15 +37,13 @@ public class LittleGirlQuest : MonoBehaviour
 		{
 			case QuestProgress.QUEST_INCOMPLETE:
 				// initial dialogue
-				if (catInventory.RemoveItemFromInventory(questItem)) // Player has item
+				if (catInventory.HasItem(questItem))
 				{
 					currentQuestProg = QuestProgress.QUEST_COMPLETE;
-					// dialogue
 					dialogueManager.StartDialogue(questItemAcquired);
 				}
-				else // Player doesn't have item
+				else 
 				{
-					// dialogue 
 					dialogueManager.StartDialogue(questIncomplete);
 				}
 				this.AdvanceQuest();
@@ -56,4 +54,11 @@ public class LittleGirlQuest : MonoBehaviour
 				break;
 		}
 	}
+
+	private void MoveItemToSelfInventory()
+	{
+		catInventory.MoveItemToOtherInventory(questItem, littleGirlInventory.inventory);
+	}
+
+	
 }

@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
     public void OptionOnClick(int index){
         Choice option = currentSentence.options[index];
         if (option.onOptionSelected != null){
-            option.onOptionSelected.Raise();
+            option.onOptionSelected.Invoke();
         }
         currentSentence = option.nextSentence;
         DisplaySentence();

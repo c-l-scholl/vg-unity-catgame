@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // By Bret Jackson
 
@@ -29,6 +30,6 @@ public class Choice{
     [TextArea(3, 10)]
     public string text;
     public Sentence nextSentence;
-    public GameEvent onOptionSelected;
+    public UnityEvent onOptionSelected;
 
 }
