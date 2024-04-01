@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.TextCore.Text;
 
@@ -14,6 +15,8 @@ public class CatMovement : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D rigidBody;
+    public Slider staminaSlider;
+    public Canvas staminaCanvas;
 
     private enum SprintState
     {
@@ -37,6 +40,26 @@ public class CatMovement : MonoBehaviour
         currentStamina = MAX_STAMINA;
         sprintSpeed = 2f * speed;
         tiredSpeed = 0.5f * speed;
+        SliderSetup();
+    }
+
+    void Update()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(speed));
+        rigidBody.velocity = MovementHandling();
+        SetStaminaSlider();
+    }
+
+    private void SliderSetup()
+    {
+        staminaSlider.maxValue = MAX_STAMINA;
+        staminaSlider.value = currentStamina;
+    }
+
+    private void SetStaminaSlider()
+    {
+        staminaSlider.value = currentStamina;
+        staminaCanvas.enabled = (currentStamina < MAX_STAMINA);
     }
 
     public void disableMovement()
@@ -52,11 +75,7 @@ public class CatMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        animator.SetFloat("Speed", Mathf.Abs(speed));
-        rigidBody.velocity = MovementHandling();
-    }
+    
 
     private Vector2 MovementHandling()
     {
@@ -69,6 +88,7 @@ public class CatMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.LeftShift) && (horizMove != 0 || vertMove != 0))
                 {
                     currentSprintState = SprintState.SPRINTING;
+
                 }
                 else
                 {
@@ -124,6 +144,7 @@ public class CatMovement : MonoBehaviour
             resetAnimateBool(null);
             animator.SetFloat("Speed", 0);
         } 
+        SetStaminaSlider();
         return movement;
     }
 
