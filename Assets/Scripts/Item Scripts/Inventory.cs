@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory")]
 public class Inventory : ScriptableObject
 {
-    private List<InventoryItemData> items = new List<InventoryItemData>();
+    // treat as private
+    public List<InventoryItemData> items = new List<InventoryItemData>();
     public int maxItems;
 
     public bool AddItemToInventory(InventoryItemData itemToAdd)
@@ -36,9 +37,6 @@ public class Inventory : ScriptableObject
 
         // Removes the item from the inventory
         items.RemoveAt(itemIndex);
-
-        // Updates the inventory again in UI
-        // UpdateInventory();
     }
 
     public bool HasItem(InventoryItemData item)
@@ -74,6 +72,16 @@ public class Inventory : ScriptableObject
     public bool IsEmpty()
     {
         return items.Count == 0;
+    }
+
+    public void RemoveItem(int index)
+    {
+        items.RemoveAt(index);
+    }
+
+    public void AddQuestItem(InventoryItemData questItem)
+    {
+        items.Add(questItem);
     }
 
     // public void TransferItem() {

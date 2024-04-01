@@ -23,8 +23,8 @@ public class CatMovement : MonoBehaviour
     }
     private SprintState currentSprintState = SprintState.WALKING;
     private readonly float MAX_STAMINA = 15f;
-    private readonly float DRAIN_RATE = 5f;
-    private readonly float RECHARGE_RATE = 3f;
+    private readonly float DRAIN_RATE = 3f;
+    private readonly float RECHARGE_RATE = 4f;
     private float currentStamina;
     public float speed = 2f;
     private float sprintSpeed;
@@ -74,6 +74,14 @@ public class CatMovement : MonoBehaviour
                 {
                     horizMove *= speed;
                     vertMove *= speed;
+                    if (currentStamina < MAX_STAMINA)
+                    {
+                        currentStamina += Time.deltaTime * RECHARGE_RATE;
+                    }
+                    else if (currentStamina >= MAX_STAMINA)
+                    {
+                        currentStamina = MAX_STAMINA;
+                    }
                 }
                 break;
             case SprintState.SPRINTING:

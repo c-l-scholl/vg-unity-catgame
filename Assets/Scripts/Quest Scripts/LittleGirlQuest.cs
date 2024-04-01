@@ -46,18 +46,13 @@ public class LittleGirlQuest : MonoBehaviour
 				{
 					dialogueManager.StartDialogue(questIncomplete);
 				}
-				this.AdvanceQuest();
+				// this.AdvanceQuest();
 				break;
 			case QuestProgress.QUEST_COMPLETE:
 				// basic dialogue
 				dialogueManager.StartDialogue(questCompleted);
 				break;
 		}
-	}
-
-	private void MoveItemToSelfInventory()
-	{
-		catInventory.MoveItemToOtherInventory(questItem, littleGirlInventory.inventory);
 	}
 
 	

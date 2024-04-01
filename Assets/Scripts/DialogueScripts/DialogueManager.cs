@@ -8,6 +8,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueUIText;
+    public TextMeshProUGUI nameUIText;
     public Canvas dialogueCanvas;
     public GameObject continueButton;
     public GameObject optionPanel;
@@ -19,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(DialogueTree dialogueTree){
         dialogue = dialogueTree;
         currentSentence = dialogue.startingSentence;
+        nameUIText.text = dialogue.characterName;
         dialogueCanvas.enabled = true;
         DisplaySentence();
     }
