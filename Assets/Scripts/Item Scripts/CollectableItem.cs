@@ -11,7 +11,10 @@ public class CollectableItem : MonoBehaviour
 
     public InventoryItemData CollectItem()
     {
-        Destroy(this.gameObject);
         return item;
+    }
+
+    public void destroyItem() {
+        Destroy(this.gameObject);
     }
 }

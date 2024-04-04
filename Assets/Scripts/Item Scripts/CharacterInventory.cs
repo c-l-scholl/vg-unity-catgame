@@ -7,13 +7,19 @@ public class CharacterInventory : MonoBehaviour
     public Inventory inventory;
     private bool pickedUpItem = false;
 
+    public void OnApplicationQuit() {
+        inventory.items.Clear();
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (Input.GetKey(KeyCode.Space) && !pickedUpItem)
         {
             if (other.TryGetComponent(out CollectableItem itemToPickUp))
             {
-                inventory.AddItemToInventory(itemToPickUp.CollectItem());
+                if (inventory.AddItemToInventory(itemToPickUp.CollectItem())) {
+                    itemToPickUp.destroyItem();
+                }
                 pickedUpItem = true;
             }
         }

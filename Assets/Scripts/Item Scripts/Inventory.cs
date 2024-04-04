@@ -1,32 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
+using UnityEditor.Search;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory")]
 public class Inventory : ScriptableObject
 {
     // treat as private
-    public List<InventoryItemData> items = new List<InventoryItemData>();
+    public List<InventoryItemData> items;
     public int maxItems;
 
     public bool AddItemToInventory(InventoryItemData itemToAdd)
     {
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i] == null)
-            {
-                items[i] = itemToAdd;
-                return true;
-            }
-        }
-
+        // for (int i = 0; i < items.Count; i++)
+        // {
+        //     if (items[i] == null && items.Count + 1 <= maxItems)
+        //     {
+        //         items[i] = itemToAdd;
+        //         return true;
+        //     }
+        // }
+        Debug.Log(items.Count);
         if (items.Count < maxItems)
         {
             items.Add(itemToAdd);
             return true;
         }
         return false;
-
     }
 
     public void DropItem(int itemIndex)
