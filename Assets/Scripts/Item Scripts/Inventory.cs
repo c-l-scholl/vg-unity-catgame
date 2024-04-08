@@ -14,15 +14,6 @@ public class Inventory : ScriptableObject
 
     public bool AddItemToInventory(InventoryItemData itemToAdd)
     {
-        // for (int i = 0; i < items.Count; i++)
-        // {
-        //     if (items[i] == null && items.Count + 1 <= maxItems)
-        //     {
-        //         items[i] = itemToAdd;
-        //         return true;
-        //     }
-        // }
-        Debug.Log(items.Count);
         if (items.Count < maxItems)
         {
             items.Add(itemToAdd);
