@@ -44,6 +44,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 77f7e9e67da95ac4cbde2485ba2cef13, type: 2}
+          m_TargetAssemblyTypeName: Step, Assembly-CSharp
+          m_MethodName: SetCompletion
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 2d89252200aa9c64389c03ea579f394e, type: 2}
+          m_TargetAssemblyTypeName: QuestStatus, Assembly-CSharp
+          m_MethodName: CheckStepCompletion
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - text: Don't give item
     nextSentence: {fileID: 11400000, guid: 12bdb342e2092344799d5aaf5c60ddd1, type: 2}
     onOptionSelected:

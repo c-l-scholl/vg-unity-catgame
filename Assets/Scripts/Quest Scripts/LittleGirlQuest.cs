@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LittleGirlQuest : MonoBehaviour
 {
@@ -14,8 +15,6 @@ public class LittleGirlQuest : MonoBehaviour
 	public DialogueTree questCompleted;
 	public DialogueTree questItemAcquired;
 	// public class DialogueTree hatesCat;
-
-
 	private enum QuestProgress
 	{
 		QUEST_INCOMPLETE, // Default, hasn't given item to npc, hasn't been acquired
@@ -37,22 +36,42 @@ public class LittleGirlQuest : MonoBehaviour
 		{
 			case QuestProgress.QUEST_INCOMPLETE:
 				// initial dialogue
-				if (catInventory.HasItem(questItem))
+				if (littleGirlInventory.inventory.HasItem(questItem))
 				{
 					currentQuestProg = QuestProgress.QUEST_COMPLETE;
-					dialogueManager.StartDialogue(questItemAcquired);
+					UnlockNextSection();
+				}
+				else if (catInventory.HasItem(questItem))
+				{
+					// currentQuestProg = QuestProgress.QUEST_COMPLETE;
+					if (dialogueManager.dialogueCanvas.enabled == false)
+					{
+						dialogueManager.StartDialogue(questItemAcquired);
+						this.AdvanceQuest();
+					}
+					//UnlockNextSection();
 				}
 				else 
 				{
 					dialogueManager.StartDialogue(questIncomplete);
 				}
-				// this.AdvanceQuest();
 				break;
 			case QuestProgress.QUEST_COMPLETE:
 				// basic dialogue
 				dialogueManager.StartDialogue(questCompleted);
 				break;
 		}
+	}
+
+	private void UnlockNextSection()
+	{
+		L2.SetActive(true);
+
+	}
+
+	public void SetQuestToComplete()
+	{
+		currentQuestProg = QuestProgress.QUEST_COMPLETE;
 	}
 
 	
