@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 // By Bret Jackson
@@ -13,9 +14,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject continueButton;
     public GameObject optionPanel;
     public TextMeshProUGUI[] optionsUI;
-
     private DialogueTree dialogue;
     private Sentence currentSentence = null;
+    public UnityEvent enableCatMovement;
 
     public void StartDialogue(DialogueTree dialogueTree){
         dialogue = dialogueTree;
@@ -32,6 +33,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplaySentence(){
         if (currentSentence == null){
+            enableCatMovement.Invoke();
             EndDialogue();
             return;
         }
@@ -46,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUIText.text = "";
         foreach(char letter in sentence.ToCharArray()){
             dialogueUIText.text += letter;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         if (currentSentence.HasOptions()){

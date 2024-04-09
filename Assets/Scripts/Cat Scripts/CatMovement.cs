@@ -62,6 +62,7 @@ public class CatMovement : MonoBehaviour
         staminaCanvas.enabled = (currentStamina < MAX_STAMINA);
     }
 
+    // should figure out a better way to disable movement
     public void disableMovement()
     {
         rigidBody.velocity = new Vector2(0,0);

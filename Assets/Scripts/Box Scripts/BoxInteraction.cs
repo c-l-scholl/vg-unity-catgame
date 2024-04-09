@@ -14,8 +14,10 @@ public class BoxInteraction : MonoBehaviour
         interacting = false;
     }
 
-    private void Update() {
-        if (Input.GetKey(KeyCode.Escape) && interacting) {
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape) && interacting)
+        {
             interacting = false;
             endBoxInteraction.Invoke();
         }
@@ -29,13 +31,14 @@ public class BoxInteraction : MonoBehaviour
             uiInventory.AddNewItem(itemToPickUp.CollectItem());
         }
 
-        if (Input.GetKey(KeyCode.Space) && !interacting)
+        if (other.TryGetComponent(out CatSingleton cat) && Input.GetKey(KeyCode.Space) && !interacting)
         {
+            Debug.Log("Interacting with inventory somehow");
             interactWithBox.Invoke();
             interacting = true;
         }
 
-        
+
     }
 
     // private void OnTriggerExit2D(Collider2D other)
