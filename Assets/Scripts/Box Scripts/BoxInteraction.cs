@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class BoxInteraction : MonoBehaviour
 {
     private bool interacting;
-    public UIInventory uiInventory;
+    public UIInventory inventoryPanel;
     public UnityEvent interactWithBox;
     public UnityEvent endBoxInteraction;
 
@@ -28,7 +28,8 @@ public class BoxInteraction : MonoBehaviour
 
         if (other.TryGetComponent(out CollectableItem itemToPickUp) && interacting)
         {
-            uiInventory.AddNewItem(itemToPickUp.CollectItem());
+            itemToPickUp.destroyItem();
+            inventoryPanel.AddNewItem(itemToPickUp.CollectItem());
         }
 
         if (other.TryGetComponent(out CatSingleton cat) && Input.GetKey(KeyCode.Space) && !interacting)

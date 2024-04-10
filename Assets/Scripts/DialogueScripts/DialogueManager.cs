@@ -88,5 +88,6 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue(){
         dialogueCanvas.enabled = false;
+        continueButton.SetActive(false);
     }
 }
