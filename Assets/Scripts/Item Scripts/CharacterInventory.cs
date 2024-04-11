@@ -6,8 +6,18 @@ using UnityEngine.Events;
 public class CharacterInventory : MonoBehaviour
 {
     public Inventory inventory;
+
+    [SerializeField]
+    private Canvas itemCanvas;
+    [SerializeField]
+    private GameObject eatOption;
+    // private Button eatButton;
     private bool pickedUpItem = false;
     // public UnityEvent addHealthFromFood;
+    void Start()
+    {
+        
+    }
 
     public void OnApplicationQuit()
     {
