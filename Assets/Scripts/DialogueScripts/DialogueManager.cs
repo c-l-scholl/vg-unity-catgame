@@ -33,7 +33,6 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplaySentence(){
         if (currentSentence == null){
-            enableCatMovement.Invoke();
             EndDialogue();
             return;
         }
@@ -89,5 +88,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         dialogueCanvas.enabled = false;
         continueButton.SetActive(false);
+        enableCatMovement.Invoke();
     }
 }

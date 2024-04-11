@@ -22,7 +22,9 @@ public class CatMovement : MonoBehaviour
     {
         WALKING,
         SPRINTING,
-        EXHAUSTED
+        EXHAUSTED,
+        FROZEN
+
     }
     private SprintState currentSprintState = SprintState.WALKING;
     private readonly float MAX_STAMINA = 15f;
@@ -67,12 +69,17 @@ public class CatMovement : MonoBehaviour
     {
         rigidBody.velocity = new Vector2(0,0);
         resetAnimateBool(null);
-        this.enabled = false;
+        // this.enabled = false;
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+        animator.enabled = (false);
+        currentSprintState = SprintState.FROZEN;
     }
 
     public void enableMovement()
     {
-        this.enabled = true;
+        rigidBody.constraints = RigidbodyConstraints2D.None;
+        animator.enabled = (true);
+        currentSprintState = SprintState.WALKING;
     }
 
     // Update is called once per frame
@@ -134,6 +141,19 @@ public class CatMovement : MonoBehaviour
                     currentSprintState = SprintState.WALKING;
                 }
                 break;
+            case SprintState.FROZEN:
+                if (currentStamina < MAX_STAMINA)
+                {
+                    currentStamina += Time.deltaTime * RECHARGE_RATE;
+                }
+                else if (currentStamina >= MAX_STAMINA)
+                {
+                    currentStamina = MAX_STAMINA;
+                    currentSprintState = SprintState.WALKING;
+                }
+                resetAnimateBool(null);
+                animator.SetFloat("Speed", 0);
+                return Vector2.zero;
         }
         if (horizMove != 0 || vertMove != 0)
         {
