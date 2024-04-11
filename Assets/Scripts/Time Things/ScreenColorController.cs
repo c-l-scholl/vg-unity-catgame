@@ -10,6 +10,11 @@ public class ScreenColorController : MonoBehaviour
     public float changeSpeed;
     public Color nightEndColor;
     public Color sunsetEndColor;
+    public Color defaultColor;
+
+    public void ResetColor() {
+        screenColor.color = defaultColor;
+    }
 
     public void Sunset() {
         StartCoroutine(SunsetChangeScreenColor());
