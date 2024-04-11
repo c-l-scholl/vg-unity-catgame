@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterInventory : MonoBehaviour
 {
     public Inventory inventory;
     private bool pickedUpItem = false;
+    // public UnityEvent addHealthFromFood;
 
-    public void OnApplicationQuit() {
+    public void OnApplicationQuit()
+    {
         inventory.items.Clear();
     }
 
@@ -15,9 +18,24 @@ public class CharacterInventory : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && !pickedUpItem)
         {
-            if (other.TryGetComponent(out CollectableItem itemToPickUp))
+            
+            // if Consumable: eat button enabled
+            // if Collectable: 
+            //      if inventory has open space: 
+            //          pickup button enabled
+            //          swap disabled
+            //      else if inventory full:
+            //          swap button enabled
+            //          pickup disabled
+            if (other.TryGetComponent(out ConsumableItem itemToEat))
             {
-                if (inventory.AddItemToInventory(itemToPickUp.CollectItem())) {
+                itemToEat.destroyItem();
+                CatSingleton.GetCatSingleton().gameObject.GetComponent<CatHealth>().AddHealthFromFood();
+            }
+            else if (other.TryGetComponent(out CollectableItem itemToPickUp))
+            {
+                if (inventory.AddItemToInventory(itemToPickUp.CollectItem()))
+                {
                     itemToPickUp.destroyItem();
                 }
                 pickedUpItem = true;

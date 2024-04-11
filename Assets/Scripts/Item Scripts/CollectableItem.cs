@@ -6,9 +6,6 @@ public class CollectableItem : MonoBehaviour
 {
     // Start is called before the first frame update
     public InventoryItemData item;
-
-    
-
     public InventoryItemData CollectItem()
     {
         return item;
