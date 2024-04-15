@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
     public Inventory inventory;
+
     public Canvas itemsBoard;
+
     public GameObject eatButton;
+
     public GameObject swapButton;
+
     public GameObject pickUpButton;
 
     private ConsumableItem foodItem;
+
     private CollectableItem normalItem;
+
     private bool pickedUpItem = false;
+
     private bool ableToPickUp = false;
+
     // public UnityEvent addHealthFromFood;
     void Start()
     {
@@ -41,7 +49,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {       
+    {
         foodItem = null;
         normalItem = null;
         if (other.TryGetComponent(out ConsumableItem itemToEat))
@@ -63,7 +71,6 @@ public class PlayerInventory : MonoBehaviour
             {
                 pickUpButton.GetComponent<Button>().interactable = true;
                 swapButton.GetComponent<Button>().interactable = false;
-                
             }
             else
             {
@@ -98,7 +105,7 @@ public class PlayerInventory : MonoBehaviour
                 }
                 break;
             case 2: // pick up
-                if (inventory.AddItemToInventory(normalItem.CollectItem()))
+                if (inventory.AddItemToInventory(normalItem?.CollectItem()))
                 {
                     normalItem.destroyItem();
                 }
@@ -121,4 +128,3 @@ public class PlayerInventory : MonoBehaviour
         pickedUpItem = isItemPickedUp;
     }
 }
-
