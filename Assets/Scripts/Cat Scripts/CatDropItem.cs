@@ -5,10 +5,10 @@ using UnityEngine;
 public class CatDropItem : MonoBehaviour
 {
     // Start is called before the first frame update
-    private CharacterInventory catInventory;
+    private PlayerInventory catInventory;
     void Start()
     {
-        catInventory = GetComponent<CharacterInventory>();
+        catInventory = GetComponent<PlayerInventory>();
     }
 
     // Update is called once per frame

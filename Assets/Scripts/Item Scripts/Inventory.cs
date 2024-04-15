@@ -25,8 +25,13 @@ public class Inventory : ScriptableObject
     public void DropItem(int itemIndex)
     {
         // Creates a new object and gives it the item data
+        if (itemIndex < 0 || itemIndex >= items.Count)
+        {
+            return;
+        }
         GameObject itemModel = Instantiate(items[itemIndex].model);
         itemModel.transform.position = CatSingleton.GetCatSingleton().transform.position;
+        CatSingleton.GetCatSingleton().GetComponent<PlayerInventory>().SetPickedUpItem(false);
 
         // Removes the item from the inventory
         items.RemoveAt(itemIndex);

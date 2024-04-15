@@ -12,6 +12,9 @@ public class CollectableItem : MonoBehaviour
     }
 
     public void destroyItem() {
-        Destroy(this.gameObject);
+        if (this.gameObject != null){
+            Destroy(this.gameObject);
+        }
+        
     }
 }

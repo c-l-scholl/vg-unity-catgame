@@ -77,7 +77,7 @@ public class CatMovement : MonoBehaviour
 
     public void enableMovement()
     {
-        rigidBody.constraints = RigidbodyConstraints2D.None;
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         animator.enabled = (true);
         currentSprintState = SprintState.WALKING;
     }

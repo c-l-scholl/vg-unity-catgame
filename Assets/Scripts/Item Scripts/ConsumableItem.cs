@@ -12,6 +12,10 @@ public class ConsumableItem : MonoBehaviour
     // }
 
     public void destroyItem() {
-        Destroy(this.gameObject);
+        if (this.gameObject != null)
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 }
