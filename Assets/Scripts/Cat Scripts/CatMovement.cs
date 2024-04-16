@@ -40,6 +40,7 @@ public class CatMovement : MonoBehaviour
         currentStamina = MAX_STAMINA;
         sprintSpeed = 2f * speed;
         tiredSpeed = 0.5f * speed;
+        disableMovement();
         SliderSetup();
     }
 
