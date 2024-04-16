@@ -9,6 +9,7 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     // treat as private
+    
     public List<InventoryItemData> items;
     public int maxItems;
     
@@ -81,6 +82,11 @@ public class Inventory : ScriptableObject
     public void AddQuestItem(InventoryItemData questItem)
     {
         items.Add(questItem);
+    }
+
+    public void ClearItems()
+    {
+        items.Clear();
     }
 
     // public void TransferItem() {

@@ -25,6 +25,11 @@ public class CameraBounds : MonoBehaviour
 
     void Start()
     {
+        CalculateBounds();
+    }
+
+    public void CalculateBounds()
+    {
         maxPos = new Vector2(rightBorder.transform.position.x - distanceToBorder, topBorder.transform.position.y - distanceToBorder + vertBuffer);
         minPos = new Vector2(leftBorder.transform.position.x + distanceToBorder, bottomBorder.transform.position.y + distanceToBorder - vertBuffer);
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, zPos);

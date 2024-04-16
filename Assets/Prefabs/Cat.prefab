@@ -216,7 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7518013531901610195}
-  rigidBody: {fileID: 0}
   staminaSlider: {fileID: 0}
   staminaCanvas: {fileID: 0}
   speed: 2
@@ -304,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad35772895026a4da42d7a280b967ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoxUI: {fileID: 0}
 --- !u!114 &2041142290828359916
 MonoBehaviour:
   m_ObjectHideFlags: 0

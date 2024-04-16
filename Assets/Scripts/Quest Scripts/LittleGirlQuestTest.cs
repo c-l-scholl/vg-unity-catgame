@@ -12,16 +12,23 @@ public class LittleGirlQuestTest : MonoBehaviour
     public QuestStatus LGQstatus;
     // treat curStep as private
     public Step curStep;
+    public UnityEvent UnlockStageTwoEvent;
+    private bool IsStageTwoUnlocked = false;
+    
+    public Inventory littleGirlInventory; // check for quest completion
+    
 	// public class DialogueTree hatesCat;
     void Start()
     {   
         LGQstatus.Reset();
+        littleGirlInventory.ClearItems();
     }
 
     void AdvanceQuest()
     {
         LGQstatus.CheckStepCompletion();
         curStep = LGQstatus.GetCurrentStep();
+        
         if (LGQstatus.IsFirstStep())
         {
             if (catInventory.HasItem(questItem))
@@ -31,7 +38,22 @@ public class LittleGirlQuestTest : MonoBehaviour
             }
         }
         dialogueManager.StartDialogue(curStep.dialogueTree);
+
         
+        
+        
+    }
+
+    public void UnlockStageTwo() // Called by the DialogueManager, should change
+    {
+        if (!IsStageTwoUnlocked)
+        {
+            if (littleGirlInventory.HasItem(questItem))
+            {
+                IsStageTwoUnlocked = true;
+                UnlockStageTwoEvent.Invoke();
+            }
+        }
     }
 }
 

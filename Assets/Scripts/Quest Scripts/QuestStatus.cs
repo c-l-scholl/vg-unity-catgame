@@ -22,9 +22,12 @@ public class QuestStatus : ScriptableObject
 
     public void CheckStepCompletion()
     {
-        if (GetCurrentStep().isComplete && (currentStepIndex < steps.Count - 1))
+        if (GetCurrentStep().isComplete) 
         {
-            currentStepIndex++;
+            if (currentStepIndex < steps.Count - 1)
+            {
+                currentStepIndex++;
+            }
         }
     }
 

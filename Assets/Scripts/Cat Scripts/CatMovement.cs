@@ -14,17 +14,15 @@ using UnityEngine.TextCore.Text;
 public class CatMovement : MonoBehaviour
 {
     public Animator animator;
-    public Rigidbody2D rigidBody;
+    private Rigidbody2D rigidBody;
     public Slider staminaSlider;
     public Canvas staminaCanvas;
-
     private enum SprintState
     {
         WALKING,
         SPRINTING,
         EXHAUSTED,
         FROZEN
-
     }
     private SprintState currentSprintState = SprintState.WALKING;
     private readonly float MAX_STAMINA = 15f;
@@ -69,21 +67,19 @@ public class CatMovement : MonoBehaviour
     {
         rigidBody.velocity = new Vector2(0,0);
         resetAnimateBool(null);
-        // this.enabled = false;
         rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
-        animator.enabled = (false);
+        animator.enabled = false;
         currentSprintState = SprintState.FROZEN;
     }
 
     public void enableMovement()
     {
+        // added because Unity somehow loses track of the rigidbody
+        rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        animator.enabled = (true);
+        animator.enabled = true;
         currentSprintState = SprintState.WALKING;
     }
-
-    // Update is called once per frame
-    
 
     private Vector2 MovementHandling()
     {

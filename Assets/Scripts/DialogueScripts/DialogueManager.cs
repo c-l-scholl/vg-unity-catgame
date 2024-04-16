@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI[] optionsUI;
     private DialogueTree dialogue;
     private Sentence currentSentence = null;
-    public UnityEvent enableCatMovement;
+    public UnityEvent catMoveAndQuestCheck;
 
     public void StartDialogue(DialogueTree dialogueTree){
         dialogue = dialogueTree;
@@ -88,6 +88,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         dialogueCanvas.enabled = false;
         continueButton.SetActive(false);
-        enableCatMovement.Invoke();
+        catMoveAndQuestCheck.Invoke();
     }
 }
