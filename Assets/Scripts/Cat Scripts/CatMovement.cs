@@ -25,14 +25,14 @@ public class CatMovement : MonoBehaviour
         FROZEN
     }
     private SprintState currentSprintState = SprintState.WALKING;
-    private readonly float MAX_STAMINA = 15f;
-    private readonly float DRAIN_RATE = 3f;
-    private readonly float RECHARGE_RATE = 4f;
+    private readonly float MAX_STAMINA = 8f;
+    private readonly float DRAIN_RATE = 4f;
+    private readonly float RECHARGE_RATE = 5f;
     private float currentStamina;
-    public float speed = 2f;
+    public float speed;
     private float sprintSpeed;
     private float tiredSpeed;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +65,7 @@ public class CatMovement : MonoBehaviour
     // should figure out a better way to disable movement
     public void disableMovement()
     {
-        rigidBody.velocity = new Vector2(0,0);
+        rigidBody.velocity = new Vector2(0, 0);
         resetAnimateBool(null);
         rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
         animator.enabled = false;
@@ -84,8 +84,8 @@ public class CatMovement : MonoBehaviour
     private Vector2 MovementHandling()
     {
         Vector2 movement = Vector2.zero;
-        float horizMove = Input.GetAxisRaw("Horizontal"); 
-        float vertMove = Input.GetAxisRaw("Vertical"); 
+        float horizMove = Input.GetAxisRaw("Horizontal");
+        float vertMove = Input.GetAxisRaw("Vertical");
         switch (currentSprintState)
         {
             case SprintState.WALKING:
@@ -160,7 +160,7 @@ public class CatMovement : MonoBehaviour
         {
             resetAnimateBool(null);
             animator.SetFloat("Speed", 0);
-        } 
+        }
         SetStaminaSlider();
         return movement;
     }
