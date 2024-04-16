@@ -46,4 +46,17 @@ public class CarController : MonoBehaviour
             Move();
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (
+            other.gameObject.CompareTag("VertBorder") ||
+            other.gameObject.CompareTag("SideBorder") ||
+            other.gameObject.CompareTag("RightBorder") ||
+            other.gameObject.CompareTag("Border")
+        )
+        {
+            Destroy (gameObject);
+        }
+    }
 }
