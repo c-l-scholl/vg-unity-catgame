@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class LittleGirlQuestTest : MonoBehaviour
 {
 	public InventoryItemData questItem;
-	// public GameObject L2; // or the rest of the map or something
     public Inventory catInventory;
     public DialogueManager dialogueManager;
     public QuestStatus LGQstatus;
@@ -14,7 +13,6 @@ public class LittleGirlQuestTest : MonoBehaviour
     public Step curStep;
     public UnityEvent UnlockStageTwoEvent;
     private bool IsStageTwoUnlocked = false;
-    
     public Inventory littleGirlInventory; // check for quest completion
     
 	// public class DialogueTree hatesCat;
