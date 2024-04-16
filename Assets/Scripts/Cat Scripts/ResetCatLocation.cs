@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class ResetCatLocation : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Vector3 catStartLocation;
+
     void Start()
     {
         catStartLocation = CatSingleton.GetCatSingleton().transform.position;
     }
 
-    // Update is called once per frame
+    public IEnumerator WaitForDelay()
+    {
+        yield return new WaitForSeconds(1.25f);
+    }
+
     public void SetCatToStartLocation()
     {
+        WaitForDelay();
         CatSingleton.GetCatSingleton().transform.position = catStartLocation;
     }
 }

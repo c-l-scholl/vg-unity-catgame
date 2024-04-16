@@ -8,39 +8,42 @@ public class CarController : MonoBehaviour
     Rigidbody2D rb;
 
     [SerializeField]
-    private float power = 5;
+    private float moveSpeed = 8f; // Speed of the car
 
     [SerializeField]
-    private float torque = 0.5f;
+    private float moveDuration = 300f; // Duration for which the car should move (in seconds)
 
-    [SerializeField]
-    private float maxSpeed = 5;
+    // [SerializeField]
+    // private float moveDistance = 100f; // Distance for which the car should move (in units)
+    private float moveTimer; // Timer to keep track of how long the car has been moving
 
-    [SerializeField]
-    private Vector2 movementVector;
-
+    // private Vector3 initialPosition; // Initial position of the car
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        // initialPosition = transform.position; // Store initial position of the car
+        Move();
     }
 
-    public void Move(Vector2 movementInput)
+    private void Move()
     {
-        this.movementVector = movementInput;
+        rb.velocity = new Vector2(moveSpeed, 0f); // Start moving the car to the right
     }
 
     private void FixedUpdate()
     {
-        // Calculate forward force based on movement input
-        Vector2 forwardForce = transform.up * movementVector.y * power;
-        if (rb.velocity.magnitude < maxSpeed)
-        {
-            rb.AddForce (forwardForce);
-        }
+        // Increment the move timer every fixed update
+        moveTimer += Time.fixedDeltaTime;
 
-        // Calculate torque based on steering input
-        float steeringTorque =
-            -movementVector.x * torque * rb.velocity.magnitude;
-        rb.AddTorque (steeringTorque);
+        // Check if the move duration has elapsed
+        if (moveTimer >= moveDuration)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            Move();
+        }
     }
 }

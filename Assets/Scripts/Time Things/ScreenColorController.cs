@@ -5,22 +5,30 @@ using UnityEngine;
 
 public class ScreenColorController : MonoBehaviour
 {
-
     public SpriteRenderer screenColor;
+
     public float changeSpeed;
+
     public Color nightEndColor;
+
     public Color sunsetEndColor;
+
     public Color defaultColor;
 
-    public void ResetColor() {
+    public Color damageColor;
+
+    public void ResetColor()
+    {
         screenColor.color = defaultColor;
     }
 
-    public void Sunset() {
+    public void Sunset()
+    {
         StartCoroutine(SunsetChangeScreenColor());
     }
 
-    public void Night() {
+    public void Night()
+    {
         StartCoroutine(NightChangeScreenColor());
     }
 
@@ -46,5 +54,17 @@ public class ScreenColorController : MonoBehaviour
             screenColor.color = Color.Lerp(startColor, nightEndColor, tick);
             yield return null;
         }
+    }
+
+    public IEnumerator ResetScreenColor()
+    {
+        yield return new WaitForSeconds(1f);
+        screenColor.color = defaultColor;
+    }
+
+    public void ChangeDamageScreenColor()
+    {
+        screenColor.color = damageColor;
+        StartCoroutine(ResetScreenColor());
     }
 }

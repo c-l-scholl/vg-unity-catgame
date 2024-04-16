@@ -10,6 +10,7 @@ TagManager:
   - VertBorder
   - RightBorder
   - Box
+  - Car
   layers:
   - Default
   - TransparentFX
