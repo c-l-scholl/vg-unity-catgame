@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
@@ -50,8 +46,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        foodItem = null;
-        normalItem = null;
         if (other.TryGetComponent(out ConsumableItem itemToEat))
         {
             eatButton.GetComponent<Button>().interactable = true;
@@ -105,7 +99,7 @@ public class PlayerInventory : MonoBehaviour
                 }
                 break;
             case 2: // pick up
-                if (inventory.AddItemToInventory(normalItem?.CollectItem()))
+                if (inventory.AddItemToInventory(normalItem.CollectItem()))
                 {
                     normalItem.destroyItem();
                 }
@@ -115,6 +109,8 @@ public class PlayerInventory : MonoBehaviour
         itemsBoard.enabled = false;
 
         GetComponent<CatMovement>().enableMovement();
+        foodItem = null;
+        normalItem = null;
     }
 
     private void OnTriggerExit2D(Collider2D other)

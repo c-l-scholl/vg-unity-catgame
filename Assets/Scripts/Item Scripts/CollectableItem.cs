@@ -13,6 +13,7 @@ public class CollectableItem : MonoBehaviour
 
     public void destroyItem() {
         if (this.gameObject != null){
+            Debug.Log("destroying" + item);
             Destroy(this.gameObject);
         }
         

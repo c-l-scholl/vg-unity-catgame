@@ -28,6 +28,7 @@ public class BoxInteraction : MonoBehaviour
 
         if (other.TryGetComponent(out CollectableItem itemToPickUp) && interacting)
         {
+            Debug.Log("box");
             itemToPickUp.destroyItem();
             inventoryPanel.AddNewItem(itemToPickUp.CollectItem());
         }
