@@ -11,7 +11,7 @@ public class Inventory : ScriptableObject
     // treat as private
     public List<InventoryItemData> items;
     public int maxItems;
-
+    
     public bool AddItemToInventory(InventoryItemData itemToAdd)
     {
         if (items.Count < maxItems)
@@ -48,6 +48,7 @@ public class Inventory : ScriptableObject
     }
 
     public InventoryItemData RemoveItemFromInventory(int itemIndex) {
+        
         InventoryItemData item = items[itemIndex];
         items.RemoveAt(itemIndex);
         return item;

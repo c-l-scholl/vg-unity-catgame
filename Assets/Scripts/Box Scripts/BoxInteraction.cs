@@ -42,9 +42,4 @@ public class BoxInteraction : MonoBehaviour
 
 
     }
-
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     interacting = false;
-    // }
 }
