@@ -6,6 +6,7 @@ public class ResetCatLocation : MonoBehaviour
 {
     // Start is called before the first frame update
     private Vector3 catStartLocation;
+
     void Start()
     {
         catStartLocation = CatSingleton.GetCatSingleton().transform.position;
