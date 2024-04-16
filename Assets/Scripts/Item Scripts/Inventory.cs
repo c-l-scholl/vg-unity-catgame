@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
-using UnityEditor.Search;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Inventory")]
