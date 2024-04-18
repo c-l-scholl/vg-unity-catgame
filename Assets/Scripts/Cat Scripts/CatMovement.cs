@@ -60,6 +60,7 @@ public class CatMovement : MonoBehaviour
     private void SetStaminaSlider()
     {
         staminaSlider.value = currentStamina;
+        //staminaCanvas.transform.position = CatSingleton.GetCatSingleton().transform.position + new Vector3(0f, 0f, 0f);
         staminaCanvas.enabled = (currentStamina < MAX_STAMINA);
     }
 
@@ -93,7 +94,6 @@ public class CatMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.LeftShift) && (horizMove != 0 || vertMove != 0))
                 {
                     currentSprintState = SprintState.SPRINTING;
-
                 }
                 else
                 {
