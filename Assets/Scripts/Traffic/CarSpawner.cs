@@ -5,6 +5,8 @@ public class CarSpawner : MonoBehaviour
 {
     public GameObject[] carPrefabs;
 
+    public bool goesRight;
+
     public float minSpawnInterval = 0.1f;
 
     public float maxSpawnInterval = 20f;
