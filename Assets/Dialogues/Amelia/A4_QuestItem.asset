@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: A4_QuestItem
   m_EditorClassIdentifier: 
-  text: Most apartments here have the same rule, but I know that the town nearby
-    gets to have pets in their houses.
+  text: Nowhere here allows pets, but I know that the town nearby gets to.
   nextSentence: {fileID: 0}
   options: []
