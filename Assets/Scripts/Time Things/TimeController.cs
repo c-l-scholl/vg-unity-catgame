@@ -15,6 +15,7 @@ public class TimeController : MonoBehaviour
     private float secondsSum;
     private readonly float SECONDS_TO_ADD = 300f;
     public UnityEvent sleepCutscene;
+    public UnityEvent decreaseCatStats;
     public UnityEvent startSunset;
     public UnityEvent startDarkness;
     void Start()
@@ -31,8 +32,10 @@ public class TimeController : MonoBehaviour
             secondsSum = 0;
         }
         secondsSum += Time.deltaTime * timeMultiplier;
-        if (currentTime >= DateTime.Now.Date + TimeSpan.FromHours(startTime + 15f))
+        if (currentTime >= DateTime.Now.Date + TimeSpan.FromHours(startTime + 15f) || Input.GetKey(KeyCode.P))
         {
+            // this means that the cat passed out, so add demerits to stamina
+            decreaseCatStats.Invoke();
             ResetTimeToMorning();
         }
 

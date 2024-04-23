@@ -15,8 +15,9 @@ public class CatMovement : MonoBehaviour
 {
     public Animator animator;
     private Rigidbody2D rigidBody;
-    public Slider staminaSlider;
+    public Slider staminaSlider; 
     public Canvas staminaCanvas;
+
     private enum SprintState
     {
         WALKING,
@@ -25,11 +26,15 @@ public class CatMovement : MonoBehaviour
         FROZEN
     }
     private SprintState currentSprintState = SprintState.WALKING;
-    private readonly float MAX_STAMINA = 8f;
+    private readonly float MAX_STAMINA_NO_EFFECT = 8f;
+    private float MAX_STAMINA;
     private readonly float DRAIN_RATE = 4f;
     private readonly float RECHARGE_RATE = 5f;
     private float currentStamina;
-    public float speed;
+
+    [SerializeField]
+    private float SPEED_NO_EFFECT;
+    private float speed;
     private float sprintSpeed;
     private float tiredSpeed;
 
@@ -37,7 +42,10 @@ public class CatMovement : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        MAX_STAMINA = MAX_STAMINA_NO_EFFECT;
         currentStamina = MAX_STAMINA;
+        
+        speed = SPEED_NO_EFFECT;
         sprintSpeed = 2f * speed;
         tiredSpeed = 0.5f * speed;
         disableMovement();
@@ -60,7 +68,6 @@ public class CatMovement : MonoBehaviour
     private void SetStaminaSlider()
     {
         staminaSlider.value = currentStamina;
-        //staminaCanvas.transform.position = CatSingleton.GetCatSingleton().transform.position + new Vector3(0f, 0f, 0f);
         staminaCanvas.enabled = (currentStamina < MAX_STAMINA);
     }
 
@@ -81,6 +88,19 @@ public class CatMovement : MonoBehaviour
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         animator.enabled = true;
         currentSprintState = SprintState.WALKING;
+    }
+
+    public void DecreaseStats()
+    {
+        // decrease stamina + speed by 10%
+        MAX_STAMINA /= 0.9f;
+        speed /= 0.9f;
+    }
+
+    public void ResetStatsToNormal()
+    {
+        MAX_STAMINA = MAX_STAMINA_NO_EFFECT;
+        speed = SPEED_NO_EFFECT;
     }
 
     private Vector2 MovementHandling()
