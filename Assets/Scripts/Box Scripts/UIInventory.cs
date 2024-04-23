@@ -51,11 +51,11 @@ public class UIInventory : MonoBehaviour
         if (uiItems[index].item != null) {
 
             if (numberOfSlots == 3) {
-                dropLocation = new Vector2(dropLocationAnchor.transform.position.x, dropLocationAnchor.transform.position.y-3);
+                dropLocation = new Vector2(dropLocationAnchor.transform.position.x, dropLocationAnchor.transform.position.y-2);
             } else {
                 dropLocation = new Vector2(dropLocationAnchor.transform.position.x, dropLocationAnchor.transform.position.y);
             }
-        
+
             inventory.RemoveItemFromInventory(uiItems[index].item);
             GameObject itemModel = Instantiate(uiItems[index].item.model);
             itemModel.transform.position = new Vector3(dropLocation.x, dropLocation.y, 0);

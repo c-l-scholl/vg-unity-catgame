@@ -4,15 +4,13 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     public Inventory inventory;
-    public UIInventory catBagUI;
+    public Canvas catBagCanvas;
+    private UIInventory catBagUI;
+    private GameObject eatButton;
 
-    public Canvas itemsBoard;
+    private GameObject swapButton;
 
-    public GameObject eatButton;
-
-    public GameObject swapButton;
-
-    public GameObject pickUpButton;
+    private GameObject pickUpButton;
 
     private ConsumableItem foodItem;
 
@@ -25,17 +23,20 @@ public class PlayerInventory : MonoBehaviour
     // public UnityEvent addHealthFromFood;
     void Start()
     {
-        // itemsBoard.gameObject.SetActive(false);
+        catBagUI = catBagCanvas.GetComponentInChildren<UIInventory>();
+        eatButton = catBagCanvas.transform.Find("EatButton").gameObject;
+        swapButton = catBagCanvas.transform.Find("SwapButton").gameObject;
+        pickUpButton = catBagCanvas.transform.Find("PickupButton").gameObject;
     }
 
     void Update()
     {
-        if (itemsBoard.gameObject.activeSelf || itemsBoard.enabled == true)
+        if (catBagCanvas.gameObject.activeSelf)
         {
             if (Input.GetKey(KeyCode.Escape))
             {
                 GetComponent<CatMovement>().enableMovement();
-                itemsBoard.enabled = false;
+                catBagCanvas.gameObject.SetActive(false);
             }
         }
     }
@@ -79,15 +80,10 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space) && !pickedUpItem && ableToPickUp)
+        if (Input.GetKey(KeyCode.Space) && ableToPickUp)
         {
             GetComponent<CatMovement>().disableMovement();
-
-            if (itemsBoard.gameObject.activeSelf == false) {
-                itemsBoard.gameObject.SetActive(true);
-            } else {
-                itemsBoard.enabled = true;
-            }
+            catBagCanvas.gameObject.SetActive(true);
         }
     }
 
@@ -123,7 +119,7 @@ public class PlayerInventory : MonoBehaviour
                 break;
         }
         pickedUpItem = true;
-        itemsBoard.enabled = false;
+        catBagCanvas.gameObject.SetActive(false);
 
         GetComponent<CatMovement>().enableMovement();
         foodItem = null;
