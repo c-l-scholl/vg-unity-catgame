@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     public Inventory inventory;
+    public UIInventory catBagUI;
 
     public Canvas itemsBoard;
 
@@ -24,12 +25,12 @@ public class PlayerInventory : MonoBehaviour
     // public UnityEvent addHealthFromFood;
     void Start()
     {
-        itemsBoard.enabled = false;
+        // itemsBoard.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (itemsBoard.enabled)
+        if (itemsBoard.gameObject.activeSelf || itemsBoard.enabled == true)
         {
             if (Input.GetKey(KeyCode.Escape))
             {
@@ -41,7 +42,12 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnApplicationQuit()
     {
+        ClearInventory();
+    }
+
+    public void ClearInventory() {
         inventory.items.Clear();
+        catBagUI.ResetInventory();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -76,7 +82,12 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !pickedUpItem && ableToPickUp)
         {
             GetComponent<CatMovement>().disableMovement();
-            itemsBoard.enabled = true;
+
+            if (itemsBoard.gameObject.activeSelf == false) {
+                itemsBoard.gameObject.SetActive(true);
+            } else {
+                itemsBoard.enabled = true;
+            }
         }
     }
 
@@ -98,14 +109,14 @@ public class PlayerInventory : MonoBehaviour
                 GetComponent<CatHealth>().AddHealthFromFood();
                 break;
             case 1: // swap
-                inventory.DropItem(0);
-                if (inventory.AddItemToInventory(normalItem.CollectItem()))
+                catBagUI.DropItem(0);
+                if (catBagUI.AddNewItem(normalItem.CollectItem()))
                 {
                     normalItem.destroyItem();
                 }
                 break;
             case 2: // pick up
-                if (inventory.AddItemToInventory(normalItem.CollectItem()))
+                if (catBagUI.AddNewItem(normalItem.CollectItem()))
                 {
                     normalItem.destroyItem();
                 }

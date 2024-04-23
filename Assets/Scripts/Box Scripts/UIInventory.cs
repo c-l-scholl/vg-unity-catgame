@@ -7,12 +7,18 @@ public class UIInventory : MonoBehaviour
     public List<UIItem> uiItems = new List<UIItem>();
     public GameObject slotPrefab;
     public Transform slotPanel;
-    public int numberOfSlots = 3;
-    public Vector2 dropLocation;
-    public Inventory boxInventory;
+    public int numberOfSlots;
+    public GameObject dropLocationAnchor;
+    public Inventory inventory;
     private int emptySlots;
+    private Vector2 dropLocation;
 
     private void Awake() {
+        ResetInventory();
+    }
+
+    public void ResetInventory() {
+        uiItems.Clear();
         for (int i = 0; i < numberOfSlots; i ++) {
             GameObject instance = Instantiate(slotPrefab);
             instance.transform.SetParent(slotPanel);
@@ -20,45 +26,53 @@ public class UIInventory : MonoBehaviour
         }
         emptySlots = numberOfSlots;
     }
-
+   
     public void UpdateSlot(int slot, InventoryItemData item) {
         uiItems[slot].UpdateItem(item);
     }
 
-    public void AddNewItem(InventoryItemData item) {
+    public bool AddNewItem(InventoryItemData item) {
         UpdateSlot(uiItems.FindIndex(i => i.item == null), item);
-        boxInventory.AddItemToInventory(item);
+        bool result = inventory.AddItemToInventory(item);
+        if (!result) {
+            Debug.Log("Add item failed");
+        }
         emptySlots--;
+        return result;
     }
 
     public void RemoveItem(InventoryItemData item) {
         UpdateSlot(uiItems.FindIndex(i => i.item == item), null);
-        boxInventory.RemoveItemFromInventory(item);
+        inventory.RemoveItemFromInventory(item);
         emptySlots++;
     }
 
-    public void RemoveItem(int index) {
+    public void DropItem(int index) {
         if (uiItems[index].item != null) {
 
-            switch(emptySlots) {
-                case 2:
-                    index = 0;
-                    break;
-                case 1:
-                    if (index > 0) {
-                        index = 1;
-                    } else {
-                        index = 0;
-                    }
-                    break;
-                default:
-                    break;
+            if (numberOfSlots == 3) {
+                dropLocation = new Vector2(dropLocationAnchor.transform.position.x, dropLocationAnchor.transform.position.y-3);
+            } else {
+                dropLocation = new Vector2(dropLocationAnchor.transform.position.x, dropLocationAnchor.transform.position.y);
             }
-
-            boxInventory.RemoveItem(index);
+        
+            inventory.RemoveItemFromInventory(uiItems[index].item);
             GameObject itemModel = Instantiate(uiItems[index].item.model);
             itemModel.transform.position = new Vector3(dropLocation.x, dropLocation.y, 0);
             uiItems[index].UpdateItem(null);
+            emptySlots++;
         }
+    }
+    
+    public InventoryItemData RemoveItem(int index) {
+        if (uiItems[index].item != null) {
+
+            InventoryItemData item = uiItems[index].item;
+            inventory.RemoveItem(index);
+            uiItems[index].UpdateItem(null);
+            emptySlots++;
+            return item;
+        }
+        return null;
     }
 }
