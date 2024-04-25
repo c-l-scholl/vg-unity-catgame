@@ -6,8 +6,7 @@ using UnityEngine.Events;
 
 public class IntroPanelScript : MonoBehaviour
 {
-    public GameObject panel;
-    public UnityEvent gameStart;
+    public UnityEvent returnToTitle;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +18,7 @@ public class IntroPanelScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Escape))
         {
-            gameStart.Invoke();
-            panel.SetActive(false);
-            
+            returnToTitle.Invoke();
         }
     }
 }
