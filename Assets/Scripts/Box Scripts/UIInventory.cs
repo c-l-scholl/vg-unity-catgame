@@ -64,7 +64,7 @@ public class UIInventory : MonoBehaviour
         }
     }
     
-    public InventoryItemData RemoveItem(int index) {
+    public InventoryItemData RemoveItemReturn(int index) {
         if (uiItems[index].item != null) {
 
             InventoryItemData item = uiItems[index].item;
@@ -74,5 +74,16 @@ public class UIInventory : MonoBehaviour
             return item;
         }
         return null;
+    }
+
+    public void RemoveItem(int index) {
+        if (uiItems.Count > 0) {
+            if (uiItems[index].item != null) {
+
+                inventory.RemoveItem(index);
+                uiItems[index].UpdateItem(null);
+                emptySlots++;
+            }
+        }
     }
 }
