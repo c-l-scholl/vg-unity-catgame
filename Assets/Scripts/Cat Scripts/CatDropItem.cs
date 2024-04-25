@@ -29,13 +29,15 @@ public class CatDropItem : MonoBehaviour
     }
 
     public void TransferToBox() {
-        if (CatBagUI.uiItems[0].item != null) {
-            InventoryItemData item = CatBagUI.RemoveItem(0);
-            if (BoxUI != null) {
-                BoxUI.AddNewItem(item);
-            }
+        if (CatBagUI.uiItems.Count > 0) {
+            if (CatBagUI.uiItems[0].item != null) {
+                InventoryItemData item = CatBagUI.RemoveItemReturn(0);
+                if (BoxUI != null) {
+                    BoxUI.AddNewItem(item);
+                }
 
-            catInventory.SetPickedUpItem(false);
+                catInventory.SetPickedUpItem(false);
+            }
         }
     }
 }
