@@ -75,7 +75,7 @@ public class CatMovement : MonoBehaviour
     public void disableMovement()
     {
         rigidBody.velocity = new Vector2(0, 0);
-        resetAnimateBool(null);
+        ResetAnimateBool(null);
         rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
         animator.enabled = false;
         currentSprintState = SprintState.FROZEN;
@@ -168,33 +168,39 @@ public class CatMovement : MonoBehaviour
                     currentStamina = MAX_STAMINA;
                     currentSprintState = SprintState.WALKING;
                 }
-                resetAnimateBool(null);
+                ResetAnimateBool(null);
                 animator.SetFloat("Speed", 0);
                 return Vector2.zero;
         }
+        // if (horizMove != 0 && vertMove != 0)
+        // {
+        //     movement = CheckHorizontal(movement, horizMove / 1.4f);
+        //     movement = CheckHorizontal(movement, vertMove / 1.4f);
+        // }
+        // else 
         if (horizMove != 0 || vertMove != 0)
         {
-            movement = checkHorizontal(movement, horizMove);
-            movement = checkVertical(movement, vertMove);
+            movement = CheckHorizontal(movement, horizMove);
+            movement = CheckVertical(movement, vertMove);
         }
         else
         {
-            resetAnimateBool(null);
+            ResetAnimateBool(null);
             animator.SetFloat("Speed", 0);
         }
         SetStaminaSlider();
         return movement;
     }
 
-    private Vector2 checkVertical(Vector2 movement, float dir)
+    private Vector2 CheckVertical(Vector2 movement, float dir)
     {
         if (dir > 0)
         {
-            resetAnimateBool("Up");
+            ResetAnimateBool("Up");
         }
         else if (dir < 0)
         {
-            resetAnimateBool("Down");
+            ResetAnimateBool("Down");
         }
         // movement.x = 0;
         movement.y = dir;
@@ -202,15 +208,15 @@ public class CatMovement : MonoBehaviour
         return movement;
     }
 
-    private Vector2 checkHorizontal(Vector2 movement, float dir)
+    private Vector2 CheckHorizontal(Vector2 movement, float dir)
     {
         if (dir > 0)
         {
-            resetAnimateBool("Right");
+            ResetAnimateBool("Right");
         }
         else if (dir < 0)
         {
-            resetAnimateBool("Left");
+            ResetAnimateBool("Left");
         }
         // movement.y = 0;
         movement.x = dir;
@@ -219,7 +225,7 @@ public class CatMovement : MonoBehaviour
     }
 
     // Sets all animation booleans to false except for the exception
-    private void resetAnimateBool(string exception)
+    private void ResetAnimateBool(string exception)
     {
         animator.SetBool("Right", false);
         animator.SetBool("Left", false);
