@@ -33,7 +33,7 @@ public class FoodSpawner : MonoBehaviour
     {
         foreach (Location location in locations)
         {
-            if (!location.IsMapActive())
+            if (!location.IsMapActive() || location.spawnPositions.Length <= 0)
             {
                 continue;
             }
