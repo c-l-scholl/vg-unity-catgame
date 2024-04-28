@@ -44,7 +44,6 @@ public class CatMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         MAX_STAMINA = MAX_STAMINA_NO_EFFECT;
         currentStamina = MAX_STAMINA;
-        
         speed = SPEED_NO_EFFECT;
         sprintSpeed = 2f * speed;
         tiredSpeed = 0.5f * speed;
@@ -95,12 +94,14 @@ public class CatMovement : MonoBehaviour
         // decrease stamina + speed by 10%
         MAX_STAMINA /= 0.9f;
         speed /= 0.9f;
+        GetComponent<ChangeStaminaColor>().DecreaseStaminaColor();
     }
 
     public void ResetStatsToNormal()
     {
         MAX_STAMINA = MAX_STAMINA_NO_EFFECT;
         speed = SPEED_NO_EFFECT;
+        GetComponent<ChangeStaminaColor>().ResetStaminaColor();
     }
 
     private Vector2 MovementHandling()
@@ -172,12 +173,6 @@ public class CatMovement : MonoBehaviour
                 animator.SetFloat("Speed", 0);
                 return Vector2.zero;
         }
-        // if (horizMove != 0 && vertMove != 0)
-        // {
-        //     movement = CheckHorizontal(movement, horizMove / 1.4f);
-        //     movement = CheckHorizontal(movement, vertMove / 1.4f);
-        // }
-        // else 
         if (horizMove != 0 || vertMove != 0)
         {
             movement = CheckHorizontal(movement, horizMove);
