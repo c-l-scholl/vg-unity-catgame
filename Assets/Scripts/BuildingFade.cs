@@ -10,10 +10,12 @@ public class BuildingFade : MonoBehaviour
     void Start() {
         buildingSprite = GetComponentInParent<SpriteRenderer>();
     }
-    void OnTriggerEnter2D() {
-        Color buildColor = buildingSprite.color;
-        buildColor.a = 0.75f;
-        buildingSprite.color = buildColor;
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.tag == "Player") {
+            Color buildColor = buildingSprite.color;
+            buildColor.a = 0.75f;
+            buildingSprite.color = buildColor;
+        }
     }
 
     void OnTriggerExit2D() {
