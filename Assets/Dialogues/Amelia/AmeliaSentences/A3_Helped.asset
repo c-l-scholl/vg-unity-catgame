@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A3_Helped
   m_EditorClassIdentifier: 
   text: Hmm... you kinda look like my neighbors' cat.
-  nextSentence: {fileID: 11400000, guid: 8b44e98a6ac8d87469b9275aad745d30, type: 2}
+  nextSentence: {fileID: 11400000, guid: a5859e419c104439d93688c1345bbe0b, type: 2}
   options: []

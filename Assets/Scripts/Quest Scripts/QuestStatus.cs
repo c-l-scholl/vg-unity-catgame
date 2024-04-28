@@ -17,17 +17,14 @@ public class QuestStatus : ScriptableObject
 
     public bool IsFirstStep()
     {
-        return currentStepIndex == 0 ? true : false;
+        return currentStepIndex == 0;
     }
 
     public void CheckStepCompletion()
     {
-        if (GetCurrentStep().isComplete) 
+        if (GetCurrentStep().isComplete && currentStepIndex < steps.Count - 1) 
         {
-            if (currentStepIndex < steps.Count - 1)
-            {
-                currentStepIndex++;
-            }
+            currentStepIndex++;
         }
     }
 

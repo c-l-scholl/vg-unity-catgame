@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A4_Helped
   m_EditorClassIdentifier: 
   text: My old neighbor. They moved away recently, though.
-  nextSentence: {fileID: 11400000, guid: cc84b7b292145498f9c52112f4a4894a, type: 2}
+  nextSentence: {fileID: 11400000, guid: 3cffa574dd9de4008b20d31b6f9b29fe, type: 2}
   options: []

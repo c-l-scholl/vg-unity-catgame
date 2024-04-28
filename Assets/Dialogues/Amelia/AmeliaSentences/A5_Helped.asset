@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A5_Helped
   m_EditorClassIdentifier: 
   text: They told me not to tell anyone they had a cat. It's not allowed!
-  nextSentence: {fileID: 11400000, guid: a5859e419c104439d93688c1345bbe0b, type: 2}
+  nextSentence: {fileID: 0}
   options: []

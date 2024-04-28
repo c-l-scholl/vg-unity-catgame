@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A2_Helped
   m_EditorClassIdentifier: 
   text: Stay safe, please!
-  nextSentence: {fileID: 0}
+  nextSentence: {fileID: 11400000, guid: cc84b7b292145498f9c52112f4a4894a, type: 2}
   options: []
