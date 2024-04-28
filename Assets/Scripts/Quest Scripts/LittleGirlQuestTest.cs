@@ -7,6 +7,7 @@ public class LittleGirlQuestTest : MonoBehaviour
 {
 	public InventoryItemData questItem;
     public Inventory catInventory;
+    public UIInventory catBag;
     public DialogueManager dialogueManager;
     public QuestStatus LGQstatus;
     // treat curStep as private
@@ -48,6 +49,7 @@ public class LittleGirlQuestTest : MonoBehaviour
         {
             if (littleGirlInventory.HasItem(questItem))
             {
+                catBag.RemoveItem(0);
                 IsStageTwoUnlocked = true;
                 UnlockStageTwoEvent.Invoke();
             }
