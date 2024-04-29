@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: GG_Greeting_3
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: I got in a fight with my boss. He's a lawyer, I'm his secretary.
+  nextSentence: {fileID: 11400000, guid: cbe33792d7ee4e6449cb0f25a68e670e, type: 2}
   options: []

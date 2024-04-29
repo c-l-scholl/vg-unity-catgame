@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: GG_Helped_2
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: Y'know, I feel really bad. My boss had a case recently. It's a tense topic
+    at the office.
+  nextSentence: {fileID: 11400000, guid: e188db627ec323a4199b0399ccbd234f, type: 2}
   options: []

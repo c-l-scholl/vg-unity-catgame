@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: GG_Greeting_2
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: I made a grave mistake...
+  nextSentence: {fileID: 11400000, guid: d76b828744977eb4c9a8d355dcb893be, type: 2}
   options: []
