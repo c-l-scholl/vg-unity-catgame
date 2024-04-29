@@ -63,9 +63,17 @@ public class FoodSpawner : MonoBehaviour
             if (locations[i].IsMapActive() && locations[i].spawnPositions.Length > 0)
             {
                 int eatenFood = 0;
-                foreach(Transform spawnSpot in spawnSpots)
+                bool inLocation = false;
+                foreach (Transform spawnSpot in spawnSpots)
                 {
-                    if (spawnSpot.childCount == 0)
+                    foreach (Transform sp in locations[i].spawnPositions)
+                    {
+                        if (sp == spawnSpot)
+                        {
+                            inLocation = true;
+                        }
+                    }
+                    if (inLocation && spawnSpot.childCount == 0)
                     {
                         eatenFood++;
                     }
