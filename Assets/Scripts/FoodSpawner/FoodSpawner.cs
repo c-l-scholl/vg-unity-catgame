@@ -9,7 +9,7 @@ public class FoodSpawner : MonoBehaviour
     [Serializable]
     public struct Location
     {
-        public int TOTAL_FOOD;
+        public int spawnableFoodCount;
         public GameObject mapSection;
         public Transform[] spawnPositions;
         public Transform GetSpawnPosition()
@@ -21,13 +21,14 @@ public class FoodSpawner : MonoBehaviour
         {
             return mapSection.activeSelf;
         }
+        public void DecrementSpawnFoodCount()
+        {
+            spawnableFoodCount--;
+        }
     }
     [SerializeField]
     private InventoryItemData[] foodItems;
     public Location[] locations;
-
-    [SerializeField]
-    private int numFoodPerDay;
 
     public void SpawnFood()
     {
@@ -37,10 +38,21 @@ public class FoodSpawner : MonoBehaviour
             {
                 continue;
             }
-            for (int i = 0; i < numFoodPerDay; i++)
+            for (int i = 0; i < location.spawnableFoodCount; i++)
             {
                 GameObject foodToSpawn = foodItems[UnityEngine.Random.Range(0, foodItems.Length)].model;
                 Instantiate(foodToSpawn, location.GetSpawnPosition());
+            }
+        }
+    }
+
+    public void DecrementFoodCount()
+    {
+        foreach (Location location in locations)
+        {
+            if (location.IsMapActive() && location.spawnPositions.Length > 0)
+            {
+                location.DecrementSpawnFoodCount();
             }
         }
     }
