@@ -38,9 +38,6 @@ public class LittleGirlQuestTest : MonoBehaviour
         }
         dialogueManager.StartDialogue(curStep.dialogueTree);
 
-        
-        
-        
     }
 
     public void UnlockStageTwo() // Called by the DialogueManager, should change

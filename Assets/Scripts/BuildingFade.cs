@@ -6,6 +6,7 @@ public class BuildingFade : MonoBehaviour
 {
 
     private SpriteRenderer buildingSprite;
+    public float fadePercent = 0.75f;
 
     void Start() {
         buildingSprite = GetComponentInParent<SpriteRenderer>();

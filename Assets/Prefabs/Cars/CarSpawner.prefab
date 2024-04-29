@@ -76,6 +76,11 @@ MonoBehaviour:
   carPrefabs:
   - {fileID: 4362404591319756297, guid: 4d33b4904e75f40a1854d401317bf363, type: 3}
   - {fileID: 2348537403517249676, guid: 937e5a4f43fee46cab080532371e567c, type: 3}
+  - {fileID: 8566589217233578544, guid: 52db51acf132f4f61a40bd904c202844, type: 3}
+  - {fileID: 4879806222475429898, guid: c0b5f459385d7415e9d58947b636219d, type: 3}
+  - {fileID: 2313504696353586062, guid: 5f4b465f6abf44eccb6a545fd4d9dc9f, type: 3}
+  - {fileID: 7723230065969760868, guid: 4130f8ed6ba224556b7a4c205b2ddf80, type: 3}
+  goesRight: 0
   minSpawnInterval: 1
   maxSpawnInterval: 20
 --- !u!61 &639227886351502863
