@@ -11,15 +11,9 @@ public class FoodSpawner : MonoBehaviour
         public int spawnableFoodCount;
         public GameObject mapSection;
         public Transform[] spawnPositions;
-        public HashSet<Transform> spawnedAtPositions;
         public Transform GetSpawnPosition()
         {
-            Transform t = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)];
-            if (spawnedAtPositions.Contains(t))
-            {
-                t = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)];
-            }
-            return t;
+            return spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)];
         }
         public bool IsMapActive()
         {
@@ -29,18 +23,16 @@ public class FoodSpawner : MonoBehaviour
         {
             int foodLeft = spawnableFoodCount - amount;
             spawnableFoodCount = foodLeft > 0 ? foodLeft : 0;
-        }  
-        public void ClearSpawnedPositions()
-        {
-            spawnedAtPositions.Clear();
-        }  
+        }   
     }
+
     [SerializeField]
     private InventoryItemData[] foodItems;
     public Location[] locations;
 
     [SerializeField]
     private int numFoodToSpawn;
+    private HashSet<Transform> spawnSpots = new HashSet<Transform>();
 
     public void SpawnFood()
     {
@@ -54,8 +46,12 @@ public class FoodSpawner : MonoBehaviour
             {
                 GameObject foodToSpawn = foodItems[UnityEngine.Random.Range(0, foodItems.Length)].model;
                 Transform spawnSpot = location.GetSpawnPosition();
+                while (spawnSpots.Contains(spawnSpot))
+                {
+                    spawnSpot = location.GetSpawnPosition();
+                }
                 Instantiate(foodToSpawn, spawnSpot);
-                location.spawnedAtPositions.Add(spawnSpot);
+                spawnSpots.Add(spawnSpot);
             }
         }
     }
@@ -66,18 +62,18 @@ public class FoodSpawner : MonoBehaviour
         {
             if (locations[i].IsMapActive() && locations[i].spawnPositions.Length > 0)
             {
-                int nonEatenFood = 0;
-                foreach(Transform spawnSpot in locations[i].spawnedAtPositions)
+                int eatenFood = 0;
+                foreach(Transform spawnSpot in spawnSpots)
                 {
                     if (spawnSpot.childCount == 0)
                     {
-                        nonEatenFood++;
+                        eatenFood++;
                     }
                 }
-                locations[i].DecreaseSpawnFoodCount(numFoodToSpawn - nonEatenFood);
-                locations[i].ClearSpawnedPositions();
+                locations[i].DecreaseSpawnFoodCount(eatenFood);
             }
         }
+        spawnSpots.Clear();
     }
 
 
