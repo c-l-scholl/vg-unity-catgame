@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea75c7d88e07ff4399f31e864cb60c5, type: 3}
   m_Name: GG_Helped_DT
   m_EditorClassIdentifier: 
-  characterName: 
-  startingSentence: {fileID: 0}
+  characterName: Adam
+  startingSentence: {fileID: 11400000, guid: 2b7192d23b57b5e4eabd243b5dbcc225, type: 2}

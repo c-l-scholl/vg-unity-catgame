@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: GG_Greeting_1
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: Oh, a cat!
+  nextSentence: {fileID: 11400000, guid: ddf020a7c02f1d7468a6ea2c32105d0d, type: 2}
   options: []

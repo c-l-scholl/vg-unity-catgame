@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: GG_QuestItem_3
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: I felt so bad. My boss got mad at me for arguing and grabbed it from my hand
+    and threw it away!
+  nextSentence: {fileID: 11400000, guid: 47d63af8e4043484c967440a70bce4ed, type: 2}
   options: []

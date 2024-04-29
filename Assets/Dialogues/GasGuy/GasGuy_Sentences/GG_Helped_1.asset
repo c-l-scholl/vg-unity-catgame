@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: GG_Helped_1
   m_EditorClassIdentifier: 
-  text: text
-  nextSentence: {fileID: 0}
+  text: Hey, you're the cat from before!
+  nextSentence: {fileID: 11400000, guid: 678c3496bba0d5141b96a4337f2815f0, type: 2}
   options: []
