@@ -22,15 +22,6 @@ public class OtherCatQuest : MonoBehaviour
     {
         otherCatStatus.CheckStepCompletion();
         curStep = otherCatStatus.GetCurrentStep();
-        
-        // if (otherCatStatus.IsFirstStep())
-        // {
-        //     if (catInventory.HasItem(questItem))
-        //     {
-        //         curStep.SetCompletion(true);
-        //         AdvanceQuest();
-        //     }
-        // }
         dialogueManager.StartDialogue(curStep.dialogueTree);
     }
 }
