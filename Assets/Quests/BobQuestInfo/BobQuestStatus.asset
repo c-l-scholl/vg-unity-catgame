@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f76386187994c459f1ab77a32913f6, type: 3}
+  m_Name: BobQuestStatus
+  m_EditorClassIdentifier: 
+  steps:
+  - {fileID: 11400000, guid: d3609b7518414664b9aa90558d7bcfac, type: 2}
+  - {fileID: 11400000, guid: ffd1987db84ba844ea68fea698f67720, type: 2}
+  - {fileID: 11400000, guid: 0806a89d0fb86fe44b6451a274e7a322, type: 2}
+  currentStepIndex: 1
