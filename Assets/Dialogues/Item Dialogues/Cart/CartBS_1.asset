@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: CartBS_1
   m_EditorClassIdentifier: 
-  text: This place is familiar...
-  nextSentence: {fileID: 0}
+  text: This place is familiar. This smell... This place smells familiar.
+  nextSentence: {fileID: 11400000, guid: 061719a1f9205b94f8986eecc073ec67, type: 2}
   options: []
