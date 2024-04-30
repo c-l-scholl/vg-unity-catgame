@@ -7,18 +7,13 @@ public class PlayerInventory : MonoBehaviour
     public Canvas catBagCanvas;
     private UIInventory catBagUI;
     private GameObject eatButton;
-
     private GameObject swapButton;
-
     private GameObject pickUpButton;
-
     private ConsumableItem foodItem;
-
     private CollectableItem normalItem;
-
     private bool pickedUpItem = false;
-
     private bool ableToPickUp = false;
+    private bool backstory = false;
 
     // public UnityEvent addHealthFromFood;
     void Start()
@@ -94,6 +89,10 @@ public class PlayerInventory : MonoBehaviour
             case 0: // eat
                 foodItem.destroyItem();
                 GetComponent<CatHealth>().AddHealthFromFood();
+                if (GetComponent<EatBackstoryPrompt>().RandomBackStory())
+                {
+                    backstory = true;
+                }
                 break;
             case 1: // swap
                 catBagUI.DropItem(0);
@@ -111,10 +110,13 @@ public class PlayerInventory : MonoBehaviour
         }
         pickedUpItem = true;
         catBagCanvas.gameObject.SetActive(false);
-
-        GetComponent<CatMovement>().enableMovement();
+        if (!backstory)
+        {
+            GetComponent<CatMovement>().enableMovement();
+        }
         foodItem = null;
         normalItem = null;
+        backstory = false;
     }
 
     private void OnTriggerExit2D(Collider2D other)
