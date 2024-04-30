@@ -13,7 +13,8 @@ public class FoodSpawner : MonoBehaviour
         public Transform[] spawnPositions;
         public Transform GetSpawnPosition()
         {
-            return spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)];
+            int i = UnityEngine.Random.Range(0, spawnPositions.Length);
+            return spawnPositions[i];
         }
         public bool IsMapActive()
         {
@@ -32,7 +33,12 @@ public class FoodSpawner : MonoBehaviour
 
     [SerializeField]
     private int numFoodToSpawn;
-    private HashSet<Transform> spawnSpots = new HashSet<Transform>();
+    private HashSet<Transform> spawnSpots;
+
+    void Start()
+    {
+        spawnSpots = new HashSet<Transform>();
+    }
 
     public void SpawnFood()
     {
