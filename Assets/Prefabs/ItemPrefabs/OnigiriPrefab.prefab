@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1258843125291034497}
   - component: {fileID: 5610871771098485323}
   - component: {fileID: 3671249779055277}
+  - component: {fileID: -8712335466668199652}
   m_Layer: 0
   m_Name: OnigiriPrefab
   m_TagString: Untagged
@@ -157,3 +158,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa9470bfa792f0429a6b9a9aebb97ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8712335466668199652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904458234801967678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c939449b47b53974ba47cfa1b182a29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOutline: {fileID: 2100000, guid: b5a60a2e571f20b489c0d6b6e7812982, type: 2}

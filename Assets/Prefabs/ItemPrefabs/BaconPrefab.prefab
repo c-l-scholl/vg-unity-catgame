@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -226950708021727295}
   - component: {fileID: 3832294176703717272}
   - component: {fileID: -1010453135247075767}
+  - component: {fileID: 2716121816171564557}
   m_Layer: 0
   m_Name: BaconPrefab
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,3 +158,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2716121816171564557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380226595079831947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c939449b47b53974ba47cfa1b182a29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOutline: {fileID: 2100000, guid: b5a60a2e571f20b489c0d6b6e7812982, type: 2}
