@@ -8,12 +8,9 @@ public class EatBackstoryPrompt : MonoBehaviour
     [SerializeField]
     private Sentence[] sentenceArr;
     [SerializeField]
-    private DialogueManager dm;
+    private DialogueManager dialogueManager;
     [SerializeField]
-    private DialogueTree dt;
-
-
-
+    private DialogueTree dialogueTree;
     private bool BackStoryChance() 
     {
         float i = Random.Range(0f, 5.0f);
@@ -28,8 +25,8 @@ public class EatBackstoryPrompt : MonoBehaviour
         }
         GetComponent<CatMovement>().disableMovement();
         int index = Random.Range(0, sentenceArr.Length);
-        dt.startingSentence = sentenceArr[index];
-        dm.StartDialogue(dt);
+        dialogueTree.startingSentence = sentenceArr[index];
+        dialogueManager.StartDialogue(dialogueTree);
         return true;
     }
 }
