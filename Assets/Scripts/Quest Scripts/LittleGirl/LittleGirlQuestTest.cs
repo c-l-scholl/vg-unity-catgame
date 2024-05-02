@@ -12,7 +12,7 @@ public class LittleGirlQuestTest : MonoBehaviour
     public QuestStatus LGQstatus;
     // treat curStep as private
     public Step curStep;
-    public Inventory littleGirlInventory; // check for quest completion
+    public Inventory littleGirlInventory; // check for quest completionb
     public UnityEvent UnlockStageTwoEvent;
     private bool IsStageTwoUnlocked = false;
     
