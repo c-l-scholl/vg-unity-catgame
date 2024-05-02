@@ -13,5 +13,39 @@ MonoBehaviour:
   m_Name: OM_HI_1
   m_EditorClassIdentifier: 
   text: Hmm...?
-  nextSentence: {fileID: 11400000, guid: 29d55f05deb11b94c8d6e3b6f1aff789, type: 2}
-  options: []
+  nextSentence: {fileID: 0}
+  options:
+  - text: Give Item
+    nextSentence: {fileID: 11400000, guid: 29d55f05deb11b94c8d6e3b6f1aff789, type: 2}
+    onOptionSelected:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 1056adae48632554086c93a92a6f35fc, type: 2}
+          m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+          m_MethodName: AddQuestItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 7d93e97223226c0409b8b4fad9b206c5, type: 2}
+            m_ObjectArgumentAssemblyTypeName: InventoryItemData, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 8f448ba494a50d544ba69936fdc86876, type: 2}
+          m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+          m_MethodName: DropItem
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - text: Don't Give Item
+    nextSentence: {fileID: 11400000, guid: 1ddfc57c7df9c4f49b610a0e63ef000b, type: 2}
+    onOptionSelected:
+      m_PersistentCalls:
+        m_Calls: []
