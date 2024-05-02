@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f963ad32dd75d408873e8960146a5d, type: 3}
+  m_Name: SunglassesItemData
+  m_EditorClassIdentifier: 
+  itemName: Bob's Sunglasses
+  icon: {fileID: 21300000, guid: a5c95838429a54841bf04c859b22f7b6, type: 3}
+  model: {fileID: 5964324821654941273, guid: 2373c41eb65903d47aaa1343adbbaac4, type: 3}
+  description: Quest Item for Bob
