@@ -15,9 +15,11 @@ public class HighlightItem : MonoBehaviour
         original = sr.material;
     }
 
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        sr.material = highlightOutline;
+        if (other.tag.Equals("Player")) {
+            sr.material = highlightOutline;
+        }
     }
 
     void OnTriggerExit2D()

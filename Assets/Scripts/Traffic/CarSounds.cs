@@ -12,7 +12,10 @@ public class CarSounds : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag.Equals("MainCamera")) {
-            carHonkSound.Play();
+            float chance = Random.Range(0.0f, 1.0f);
+            if (chance < 0.5f) {
+                carHonkSound.Play();
+            }
         }
     }
 }

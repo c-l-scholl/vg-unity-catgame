@@ -32,7 +32,7 @@ public class TimeController : MonoBehaviour
             secondsSum = 0;
         }
         secondsSum += Time.deltaTime * timeMultiplier;
-        if (currentTime >= DateTime.Now.Date + TimeSpan.FromHours(startTime + 15f) || Input.GetKey(KeyCode.P))
+        if (currentTime >= DateTime.Now.Date + TimeSpan.FromHours(startTime + 15f))
         {
             // this means that the cat passed out, so add demerits to stamina
             decreaseCatStats.Invoke();

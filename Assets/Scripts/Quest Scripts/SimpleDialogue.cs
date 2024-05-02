@@ -8,20 +8,20 @@ public class OtherCatQuest : MonoBehaviour
 	// public InventoryItemData questItem;
     public Inventory catInventory;
     public DialogueManager dialogueManager;
-    public QuestStatus otherCatStatus;
+    public QuestStatus dialogueStatus;
     // treat curStep as private
     public Step curStep;
     
 	// public class DialogueTree hatesCat;
     void Start()
     {   
-        otherCatStatus.Reset();
+        dialogueStatus.Reset();
     }
 
     void AdvanceQuest()
     {
-        otherCatStatus.CheckStepCompletion();
-        curStep = otherCatStatus.GetCurrentStep();
+        dialogueStatus.CheckStepCompletion();
+        curStep = dialogueStatus.GetCurrentStep();
         dialogueManager.StartDialogue(curStep.dialogueTree);
     }
 }

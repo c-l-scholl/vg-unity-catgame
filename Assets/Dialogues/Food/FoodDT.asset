@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea75c7d88e07ff4399f31e864cb60c5, type: 3}
   m_Name: FoodDT
   m_EditorClassIdentifier: 
-  characterName: 
-  startingSentence: {fileID: 0}
+  characterName: You
+  startingSentence: {fileID: 11400000, guid: 4b7f1231b3dd47c468cd977cf7a65f55, type: 2}

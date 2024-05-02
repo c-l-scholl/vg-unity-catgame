@@ -9,7 +9,7 @@ public class CameraBounds : MonoBehaviour
     public GameObject player;
 
     public GameObject rightBorder, leftBorder, topBorder, bottomBorder;
-    float distanceToBorder = 13f;
+    float distanceToBorder = 12f;
     float vertBuffer = 8f;
     Vector2 maxPos; 
     Vector2 minPos;

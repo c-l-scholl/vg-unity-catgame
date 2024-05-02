@@ -19,7 +19,7 @@ public class ScreenColorController : MonoBehaviour
 
     public void ResetColor()
     {
-        screenColor.color = defaultColor;
+        StartCoroutine(ResetScreenColor());
     }
 
     public void Sunset()
