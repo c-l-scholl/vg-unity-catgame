@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
-  m_Name: B2_Robbed
+  m_Name: B2_QuestItem
   m_EditorClassIdentifier: 
-  text: They were right, deciding parasites like you shouldn't be allowed here!
+  text: text
   nextSentence: {fileID: 0}
   options: []

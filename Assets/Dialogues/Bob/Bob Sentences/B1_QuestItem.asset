@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
-  m_Name: B1_Robbed
+  m_Name: B1_QuestItem
   m_EditorClassIdentifier: 
-  text: You damn cat! Now how will I feed my family?
-  nextSentence: {fileID: 11400000, guid: 2954e457d1513fe4e8eb202ae6425985, type: 2}
+  text: text
+  nextSentence: {fileID: 0}
   options: []
