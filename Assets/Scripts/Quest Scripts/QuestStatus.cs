@@ -7,6 +7,8 @@ public class QuestStatus : ScriptableObject
 {
     [SerializeField]
     private List<Step> steps;
+    [SerializeField]
+    private Step hatesCatStep;
 
     public int currentStepIndex = 0;
 
@@ -34,6 +36,18 @@ public class QuestStatus : ScriptableObject
         foreach (Step s in steps) 
         {
             s.SetCompletion(false);
+        }
+    }
+
+    public Step SetToHatesCat()
+    {
+        if (hatesCatStep != null)
+        {
+            return hatesCatStep;
+        }
+        else
+        {
+            return null;
         }
     }
 

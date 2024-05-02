@@ -12,6 +12,7 @@ public class BobQuest : MonoBehaviour
     public QuestStatus BobQuestStatus;
     // treat curStep as private
     public Step curStep;
+    public bool hatesCat = false;
     
 	// public class DialogueTree hatesCat;
     void Start()
@@ -21,6 +22,11 @@ public class BobQuest : MonoBehaviour
 
     void AdvanceQuest()
     {
+        if (hatesCat)
+        {
+            HandleHatesCat();
+            return;
+        }
         BobQuestStatus.CheckStepCompletion();
         curStep = BobQuestStatus.GetCurrentStep();
         
@@ -35,5 +41,11 @@ public class BobQuest : MonoBehaviour
         dialogueManager.StartDialogue(curStep.dialogueTree);
 
     }
+
+    void HandleHatesCat()
+    {
+        curStep = BobQuestStatus.SetToHatesCat();
+        dialogueManager.StartDialogue(curStep.dialogueTree);
+    }   
 }
 
