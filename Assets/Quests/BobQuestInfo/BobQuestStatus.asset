@@ -15,5 +15,6 @@ MonoBehaviour:
   steps:
   - {fileID: 11400000, guid: ffd1987db84ba844ea68fea698f67720, type: 2}
   - {fileID: 11400000, guid: 0806a89d0fb86fe44b6451a274e7a322, type: 2}
+  - {fileID: 11400000, guid: 377201a077d3b124ca748e709e0bfe32, type: 2}
   hatesCatStep: {fileID: 11400000, guid: d3609b7518414664b9aa90558d7bcfac, type: 2}
   currentStepIndex: 0

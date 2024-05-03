@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: B3_Greeting
   m_EditorClassIdentifier: 
-  text: I can't go home until I catch at least one fish! I can't feed my kids if
-    I don't sell any soon...
+  text: I think I dropped 'em during my smoke break or somethin'.
   nextSentence: {fileID: 11400000, guid: bbeb5abedbd84f84a975d4e9b884ef80, type: 2}
   options: []

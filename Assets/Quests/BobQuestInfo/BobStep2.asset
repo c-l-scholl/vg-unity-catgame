@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9bb5b8a56191d4e8065376319167e5, type: 3}
   m_Name: BobStep2
   m_EditorClassIdentifier: 
-  questDescription: bob has been helped
+  questDescription: bob requested item
   isComplete: 0
-  dialogueTree: {fileID: 11400000, guid: 3aa506902e327ab47aa8e8d45b780b4c, type: 2}
+  dialogueTree: {fileID: 11400000, guid: 52dba32af997eca478d219b51b61588c, type: 2}

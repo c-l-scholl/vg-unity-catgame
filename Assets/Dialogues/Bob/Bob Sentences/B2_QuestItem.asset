@@ -12,6 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: B2_QuestItem
   m_EditorClassIdentifier: 
-  text: text
+  text: Would those happen to be my sunglasses?
   nextSentence: {fileID: 0}
-  options: []
+  options:
+  - text: Give Item
+    nextSentence: {fileID: 11400000, guid: 3c1f844d291c7a54ea9ebd7f653f6ee4, type: 2}
+    onOptionSelected:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 7cc7428948755744ca8d0b25fb1cf75e, type: 2}
+          m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+          m_MethodName: AddQuestItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: e1db8ab0ddc231a43aa808de68d3a838, type: 2}
+            m_ObjectArgumentAssemblyTypeName: InventoryItemData, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 0806a89d0fb86fe44b6451a274e7a322, type: 2}
+          m_TargetAssemblyTypeName: Step, Assembly-CSharp
+          m_MethodName: SetCompletion
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - text: Don't Give Item
+    nextSentence: {fileID: 11400000, guid: ad9584ba022fcc3498ae96ecd76882f8, type: 2}
+    onOptionSelected:
+      m_PersistentCalls:
+        m_Calls: []

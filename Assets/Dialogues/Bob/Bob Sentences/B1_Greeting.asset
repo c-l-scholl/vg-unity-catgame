@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: B1_Greeting
   m_EditorClassIdentifier: 
-  text: I can't move my stuff yet!
+  text: Hey there, pal.
   nextSentence: {fileID: 11400000, guid: ff92c14a155b66f43a5c2676aa77c3e1, type: 2}
   options: []

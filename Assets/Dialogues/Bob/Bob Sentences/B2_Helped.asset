@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a7cd76ff7abb49b1ae759b9a8b938, type: 3}
   m_Name: B2_Helped
   m_EditorClassIdentifier: 
-  text: Thank you so much, cat. I see fish already!
-  nextSentence: {fileID: 0}
+  text: Last I heard he was working for some bigshot Eastside lawyer or somethin'.
+  nextSentence: {fileID: 11400000, guid: 52127740c3adc80408b65bc68814dc7f, type: 2}
   options: []
