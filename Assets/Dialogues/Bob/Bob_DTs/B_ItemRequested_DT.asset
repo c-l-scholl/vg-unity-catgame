@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea75c7d88e07ff4399f31e864cb60c5, type: 3}
   m_Name: B_ItemRequested_DT
   m_EditorClassIdentifier: 
-  characterName: 
-  startingSentence: {fileID: 0}
+  characterName: Bob
+  startingSentence: {fileID: 11400000, guid: a98523758dc5eb6448afa253d27b51a9, type: 2}

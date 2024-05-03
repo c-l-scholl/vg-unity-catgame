@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: B3_QuestItem
   m_EditorClassIdentifier: 
   text: Wow, thanks a lot, pal!
-  nextSentence: {fileID: 0}
+  nextSentence: {fileID: 11400000, guid: 94d27a9761dc888479b84ee485786294, type: 2}
   options: []
