@@ -19,7 +19,7 @@ public class EatBackstoryPrompt : MonoBehaviour
     private bool BackStoryChance() 
     {
         float i = Random.Range(0f, 5.0f);
-        return i <= 2.0f;
+        return i <= 1f;
     }
 
     public bool RandomBackStory()
