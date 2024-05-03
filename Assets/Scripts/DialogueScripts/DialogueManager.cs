@@ -18,7 +18,8 @@ public class DialogueManager : MonoBehaviour
     private Sentence currentSentence = null;
     public UnityEvent catMoveAndQuestCheck;
 
-    public void StartDialogue(DialogueTree dialogueTree){
+    public void StartDialogue(DialogueTree dialogueTree)
+    {
         dialogue = dialogueTree;
         currentSentence = dialogue.startingSentence;
         nameUIText.text = dialogue.characterName;
@@ -26,13 +27,16 @@ public class DialogueManager : MonoBehaviour
         DisplaySentence();
     }
 
-    public void AdvanceSentence(){
+    public void AdvanceSentence()
+    {
         currentSentence = currentSentence.nextSentence;
         DisplaySentence();
     }
 
-    public void DisplaySentence(){
-        if (currentSentence == null){
+    public void DisplaySentence()
+    {
+        if (currentSentence == null)
+        {
             EndDialogue();
             return;
         }
@@ -43,24 +47,31 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence){
+    IEnumerator TypeSentence(string sentence)
+    {
         dialogueUIText.text = "";
-        foreach(char letter in sentence.ToCharArray()){
+        foreach (char letter in sentence.ToCharArray())
+        {
             dialogueUIText.text += letter;
             yield return new WaitForSeconds(0.02f);
         }
 
-        if (currentSentence.HasOptions()){
+        if (currentSentence.HasOptions())
+        {
             DisplayOptions();
         }
-        else{
+        else
+        {
             continueButton.SetActive(true);
         }
     }
 
-    void DisplayOptions(){
-        if (currentSentence.options.Count <= optionsUI.Length){
-            for (int i=0; i < currentSentence.options.Count; i++){
+    void DisplayOptions()
+    {
+        if (currentSentence.options.Count <= optionsUI.Length)
+        {
+            for (int i = 0; i < currentSentence.options.Count; i++)
+            {
                 optionsUI[i].text = currentSentence.options[i].text;
                 optionsUI[i].transform.parent.gameObject.SetActive(true);
             }
@@ -68,24 +79,29 @@ public class DialogueManager : MonoBehaviour
         optionPanel.SetActive(true);
     }
 
-    void HideOptions(){
+    void HideOptions()
+    {
         continueButton.SetActive(false);
-        foreach(TextMeshProUGUI option in optionsUI){
+        foreach (TextMeshProUGUI option in optionsUI)
+        {
             option.transform.parent.gameObject.SetActive(false);
         }
         optionPanel.SetActive(false);
     }
 
-    public void OptionOnClick(int index){
+    public void OptionOnClick(int index)
+    {
         Choice option = currentSentence.options[index];
-        if (option.onOptionSelected != null){
+        if (option.onOptionSelected != null)
+        {
             option.onOptionSelected.Invoke();
         }
         currentSentence = option.nextSentence;
         DisplaySentence();
     }
 
-    void EndDialogue(){
+    public void EndDialogue()
+    {
         dialogueCanvas.enabled = false;
         continueButton.SetActive(false);
         catMoveAndQuestCheck.Invoke();
