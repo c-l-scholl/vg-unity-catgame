@@ -12,6 +12,7 @@ public class ParkBuskerQuest : MonoBehaviour
     // treat curStep as private
     private Step curStep;
     public Inventory ParkBuskerInventory; // check for quest completion
+    private bool IsQuestComplete = false;
     
     
 	// public class DialogueTree hatesCat;
@@ -36,5 +37,14 @@ public class ParkBuskerQuest : MonoBehaviour
         }
         dialogueManager.StartDialogue(curStep.dialogueTree);
 
+    }
+
+    public void CompleteDrummerQuest()
+    {
+        if (!IsQuestComplete)
+        {
+            catBag.DropItem(0);
+            IsQuestComplete = true;
+        }
     }
 }

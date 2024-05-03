@@ -13,7 +13,7 @@ public class CatHealth : MonoBehaviour
     public float maxHP = 9;
     private float currentHP;
     private float elapsed;
-    private readonly float HEALTH_FROM_FOOD = 1f;
+    private readonly float HEALTH_FROM_FOOD = 0.5f;
     private readonly float TIME_TO_DECREASE_HEALTH = 100f;
     private readonly float DAMAGE = 3f;
 
