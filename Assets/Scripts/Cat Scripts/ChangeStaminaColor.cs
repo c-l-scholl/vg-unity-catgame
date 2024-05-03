@@ -16,7 +16,7 @@ public class ChangeStaminaColor : MonoBehaviour
     }
     public void DecreaseStaminaColor()
     {
-        decrStaminaColor[0] += 75;
+        decrStaminaColor[0] += 125;
         if (decrStaminaColor[0] > 255)
         {
             decrStaminaColor[0] = 255;

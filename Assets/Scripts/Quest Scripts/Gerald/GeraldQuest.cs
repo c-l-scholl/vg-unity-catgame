@@ -43,8 +43,12 @@ public class GeraldQuest : MonoBehaviour
     {
         if (!IsQuestComplete)
         {
-            catBag.DropItem(0);
-            IsQuestComplete = true;
+            if (GeraldInventory.HasItem(questItem))
+            {
+                catBag.DropItem(0);
+                IsQuestComplete = true;
+            }
+            
         }
     }
 }

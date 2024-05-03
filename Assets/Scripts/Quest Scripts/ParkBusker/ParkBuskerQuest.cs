@@ -43,8 +43,11 @@ public class ParkBuskerQuest : MonoBehaviour
     {
         if (!IsQuestComplete)
         {
-            catBag.DropItem(0);
-            IsQuestComplete = true;
+            if (ParkBuskerInventory.HasItem(questItem))
+            {
+                catBag.DropItem(0);
+                IsQuestComplete = true;
+            }
         }
     }
 }

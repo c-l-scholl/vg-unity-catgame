@@ -92,8 +92,8 @@ public class CatMovement : MonoBehaviour
     public void DecreaseStats()
     {
         // decrease stamina + speed by 10%
-        MAX_STAMINA /= 0.9f;
-        speed /= 0.9f;
+        MAX_STAMINA *= 0.75f;
+        speed *= 0.75f;
         GetComponent<ChangeStaminaColor>().DecreaseStaminaColor();
     }
 
