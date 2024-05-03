@@ -37,4 +37,16 @@ public class CarSpawner : MonoBehaviour
         var randomIndex = Random.Range(0, carPrefabs.Length);
         return carPrefabs[randomIndex];
     }
+
+    public void MoveWithMapUnlocks()
+    {
+        if (goesRight)
+        {
+            transform.position = new Vector3(-76f, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(45f, transform.position.y, transform.position.z);
+        }
+    }
 }
