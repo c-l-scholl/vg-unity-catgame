@@ -11,6 +11,11 @@ public class EatBackstoryPrompt : MonoBehaviour
     private DialogueManager dialogueManager;
     [SerializeField]
     private DialogueTree dialogueTree;
+
+    void Start()
+    {
+        dialogueTree.startingSentence = null;
+    }    
     private bool BackStoryChance() 
     {
         float i = Random.Range(0f, 5.0f);

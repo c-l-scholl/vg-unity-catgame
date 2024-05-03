@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "vg-unity-catgame.sln"
+    "dotnet.defaultSolution": "Tail of a Stray.sln"
 }

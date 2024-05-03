@@ -34,7 +34,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 11400000, guid: 8f448ba494a50d544ba69936fdc86876, type: 2}
           m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-          m_MethodName: DropItem
+          m_MethodName: RemoveItem
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

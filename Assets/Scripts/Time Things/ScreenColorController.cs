@@ -59,6 +59,7 @@ public class ScreenColorController : MonoBehaviour
     public IEnumerator ResetScreenColor()
     {
         yield return new WaitForSeconds(1f);
+        StopAllCoroutines();
         screenColor.color = defaultColor;
     }
 

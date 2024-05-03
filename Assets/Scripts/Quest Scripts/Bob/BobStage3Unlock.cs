@@ -6,6 +6,6 @@ public class BobStage3Unlock : MonoBehaviour
 {
     public void SetToStage3Pos()
     {
-        transform.position = new Vector3(53f, transform.position.y, transform.position.z);
+        transform.position = new Vector3(46f, transform.position.y, transform.position.z);
     }
 }
